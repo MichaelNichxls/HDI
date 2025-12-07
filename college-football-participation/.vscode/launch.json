@@ -1,0 +1,44 @@
+{
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Big Ten",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "participation.py",
+            "args": ["b10", "-s", "Big Ten Participation"]
+        },
+        {
+            "name": "SEC",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "participation.py",
+            "args": ["sec", "-s", "SEC Participation"]
+        },
+        {
+            "name": "Big 12",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "participation.py",
+            "args": ["b12", "-s", "B12 Participation"]
+        },
+        {
+            "name": "ACC",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "participation.py",
+            "args": ["acc", "-s", "ACC Participation"]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "All",
+            "configurations": ["Big Ten", "SEC", "Big 12", "ACC"]
+        }
+    ]
+}

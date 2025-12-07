@@ -1,0 +1,5089 @@
+{
+  "mbb": [
+    {
+      "url": "https://acusports.com/sports/mens-basketball/coaches",
+      "team": "Abilene Christian",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goairforcefalcons.com/sports/mens-basketball/coaches",
+      "team": "Air Force",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gozips.com/sports/mens-basketball/coaches",
+      "team": "Akron",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://rolltide.com/sports/mens-basketball/coaches",
+      "team": "Alabama",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://aamusports.com/sports/mens-basketball/coaches",
+      "team": "Alabama A&M",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://bamastatesports.com/sports/mens-basketball/coaches",
+      "team": "Alabama State",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ualbanysports.com/sports/mens-basketball/coaches",
+      "team": "Albany",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://alcornsports.com/sports/mens-basketball/coaches",
+      "team": "Alcorn State",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://aueagles.com/sports/mens-basketball/coaches",
+      "team": "American",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://appstatesports.com/sports/mens-basketball/coaches",
+      "team": "Appalachian State",
+      "conference": "Sun Belt",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://arizonawildcats.com/sports/mens-basketball/coaches",
+      "team": "Arizona",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://thesundevils.com/staff-directory/department/basketball-mens-fax-480-965-9082",
+      "team": "Arizona State",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://arkansasrazorbacks.com/staff-directory",
+      "team": "Arkansas",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://lrtrojans.com/sports/mens-basketball/coaches",
+      "team": "Arkansas Little Rock",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uapblionsroar.com/sports/mens-basketball/coaches",
+      "team": "Arkansas Pine Bluff",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://astateredwolves.com/sports/mens-basketball/coaches",
+      "team": "Arkansas State",
+      "conference": "Sun Belt",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goarmywestpoint.com/sports/mens-basketball/coaches",
+      "team": "Army",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://auburntigers.com/staff-directory/department/basketball-m-334-844-9760",
+      "team": "Auburn",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://letsgopeay.com/sports/mens-basketball/coaches",
+      "team": "Austin Peay",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ballstatesports.com/sports/mens-basketball/coaches",
+      "team": "Ball State",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://baylorbears.com/sports/mens-basketball/coaches",
+      "team": "Baylor",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://athletics.bellarmine.edu/sports/mens-basketball/coaches",
+      "team": "Bellarmine",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://belmontbruins.com/sports/mens-basketball/coaches",
+      "team": "Belmont",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://bcuathletics.com/sports/mens-basketball/coaches",
+      "team": "Bethune Cookman",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://bubearcats.com/sports/mens-basketball/coaches",
+      "team": "Binghamton",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://broncosports.com/sports/mens-basketball/coaches",
+      "team": "Boise State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goterriers.com/sports/mens-basketball/coaches",
+      "team": "Boston",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://bceagles.com/sports/mens-basketball/coaches",
+      "team": "Boston College",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://bgsufalcons.com/sports/mens-basketball/coaches",
+      "team": "Bowling Green",
+      "conference": "MAC",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://bradleybraves.com/sports/mens-basketball/coaches",
+      "team": "Bradley",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://brownbears.com/sports/mens-basketball/coaches",
+      "team": "Brown",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://bryantbulldogs.com/sports/mens-basketball/coaches",
+      "team": "Bryant",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.bucknellbison.com/sports/mens-basketball/coaches",
+      "team": "Bucknell",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ubbulls.com/sports/mens-basketball/coaches",
+      "team": "Buffalo",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://butlersports.com/sports/mens-basketball/coaches",
+      "team": "Butler",
+      "conference": "Big East",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://byucougars.com/staff-directory/department/mens-basketball",
+      "team": "BYU",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://cbulancers.com/sports/mens-basketball/coaches",
+      "team": "Cal Baptist",
+      "conference": "WAC",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gopoly.com/sports/mens-basketball/coaches",
+      "team": "Cal Poly",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://calbears.com/sports/mens-basketball/coaches",
+      "team": "California",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gocamels.com/sports/mens-basketball/coaches",
+      "team": "Campbell",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gogriffs.com/sports/mens-basketball/coaches",
+      "team": "Canisius",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ucasports.com/sports/mens-basketball/coaches",
+      "team": "Central Arkansas",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ccsubluedevils.com/athletics/directory/index",
+      "team": "Central Connecticut State",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://cmuchippewas.com/sports/mens-basketball/coaches",
+      "team": "Central Michigan",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.csusports.com/sports/mens-basketball/coaches",
+      "team": "Charleston Southern",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://charlotte49ers.com/sports/mens-basketball/coaches",
+      "team": "Charlotte",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gomocs.com/sports/mens-basketball/coaches",
+      "team": "Chattanooga",
+      "conference": "SoCon",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.gocsucougars.com/sports/mens-basketball/coaches",
+      "team": "Chicago State",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobearcats.com/staff-directory/department/mens-basketball-suite-680-513-556-5847-fax-513-556-0672",
+      "team": "Cincinnati",
+      "conference": "Big 12",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://clemsontigers.com/staff-directory/sports/mens-basketball",
+      "team": "Clemson",
+      "conference": "ACC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://csuvikings.com/sports/mens-basketball/coaches",
+      "team": "Cleveland State",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goccusports.com/sports/mens-basketball/coaches",
+      "team": "Coastal Carolina",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://colgateathletics.com/sports/mens-basketball/coaches",
+      "team": "Colgate",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://cofcsports.com/sports/mens-basketball/coaches",
+      "team": "College of Charleston",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://cubuffs.com/sports/mens-basketball/coaches",
+      "team": "Colorado",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://csurams.com/sports/mens-basketball/coaches",
+      "team": "Colorado State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gocolumbialions.com/sports/mens-basketball/coaches",
+      "team": "Columbia",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://coppinstatesports.com/sports/mens-basketball/coaches",
+      "team": "Coppin State",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://cornellbigred.com/sports/mens-basketball/coaches",
+      "team": "Cornell",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gocreighton.com/sports/mens-basketball/coaches",
+      "team": "Creighton",
+      "conference": "Big East",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gorunners.com/sports/mens-basketball/coaches",
+      "team": "CSU Bakersfield",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fullertontitans.com/sports/mens-basketball/coaches",
+      "team": "CSU Fullerton",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gomatadors.com/sports/mens-basketball/coaches",
+      "team": "CSU Northridge",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://dartmouthsports.com/sports/mens-basketball/coaches",
+      "team": "Dartmouth",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://davidsonwildcats.com/sports/mens-basketball/coaches",
+      "team": "Davidson",
+      "conference": "A10",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://daytonflyers.com/sports/mens-basketball/coaches",
+      "team": "Dayton",
+      "conference": "A10",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://bluehens.com/sports/mens-basketball/coaches",
+      "team": "Delaware",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://dsuhornets.com/sports/mens-basketball/coaches",
+      "team": "Delaware State",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://denverpioneers.com/sports/mens-basketball/coaches",
+      "team": "Denver",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://depaulbluedemons.com/sports/mens-basketball/coaches",
+      "team": "DePaul",
+      "conference": "Big East",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://detroittitans.com/sports/mens-basketball/coaches",
+      "team": "Detroit Mercy",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://godrakebulldogs.com/sports/mens-basketball/coaches",
+      "team": "Drake",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://drexeldragons.com/sports/mens-basketball/coaches",
+      "team": "Drexel",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goduke.com/sports/mens-basketball/coaches",
+      "team": "Duke",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goduquesne.com/sports/mens-basketball/coaches",
+      "team": "Duquesne",
+      "conference": "A10",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://ecupirates.com/sports/mens-basketball/coaches",
+      "team": "East Carolina",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://eiupanthers.com/sports/mens-basketball/coaches",
+      "team": "Eastern Illinois",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ekusports.com/sports/mens-basketball/coaches",
+      "team": "Eastern Kentucky",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://emueagles.com/sports/mens-basketball/coaches",
+      "team": "Eastern Michigan",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goeags.com/sports/mens-basketball/coaches",
+      "team": "Eastern Washington",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://elonphoenix.com/sports/mens-basketball/coaches",
+      "team": "Elon",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://etsubucs.com/sports/mens-basketball/coaches",
+      "team": "ETSU",
+      "conference": "SoCon",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gopurpleaces.com/sports/mens-basketball/coaches",
+      "team": "Evansville",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://fairfieldstags.com/sports/mens-basketball/coaches",
+      "team": "Fairfield",
+      "conference": "MAAC",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fduknights.com/sports/mens-basketball/coaches",
+      "team": "Fairleigh Dickinson",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fausports.com/sports/mens-basketball/coaches",
+      "team": "FAU",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://fgcuathletics.com/sports/mens-basketball/coaches",
+      "team": "FGCU",
+      "conference": "ASun",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fiusports.com/sports/mens-basketball/coaches",
+      "team": "FIU",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://floridagators.com/sports/mens-basketball/coaches",
+      "team": "Florida",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://famuathletics.com/sports/mens-basketball/coaches",
+      "team": "Florida A&M",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://seminoles.com/sports/mens-basketball/coaches",
+      "team": "Florida State",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://fordhamsports.com/sports/mens-basketball/coaches",
+      "team": "Fordham",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gobulldogs.com/sports/mens-basketball/coaches",
+      "team": "Fresno State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://furmanpaladins.com/sports/mens-basketball/coaches",
+      "team": "Furman",
+      "conference": "SoCon",
+      "client": "Former Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gwusports.com/sports/mens-basketball/coaches",
+      "team": "Gardner Webb",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gomason.com/sports/mens-basketball/coaches",
+      "team": "George Mason",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gwsports.com/sports/mens-basketball/coaches",
+      "team": "George Washington",
+      "conference": "A10",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://guhoyas.com/sports/mens-basketball/coaches",
+      "team": "Georgetown",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://georgiadogs.com/sports/mens-basketball/coaches",
+      "team": "Georgia",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gseagles.com/sports/mens-basketball/coaches",
+      "team": "Georgia Southern",
+      "conference": "Sun Belt",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://georgiastatesports.com/sports/mens-basketball/coaches",
+      "team": "Georgia State",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ramblinwreck.com/staff-directory",
+      "team": "Georgia Tech",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gozags.com/sports/mens-basketball/coaches",
+      "team": "Gonzaga",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gsutigers.com/sports/mens-basketball/coaches",
+      "team": "Grambling State",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gculopes.com/sports/mens-basketball/coaches",
+      "team": "Grand Canyon",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://greenbayphoenix.com/sports/mens-basketball/coaches",
+      "team": "Green Bay",
+      "conference": "Horizon",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://hamptonpirates.com/sports/mens-basketball/coaches",
+      "team": "Hampton",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gocrimson.com/sports/mens-basketball/coaches",
+      "team": "Harvard",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://hawaiiathletics.com/sports/mens-basketball/coaches",
+      "team": "Hawaii",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://highpointpanthers.com/sports/mens-basketball/coaches",
+      "team": "High Point",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gohofstra.com/sports/mens-basketball/coaches",
+      "team": "Hofstra",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goholycross.com/sports/mens-basketball/coaches",
+      "team": "Holy Cross",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uhcougars.com/sports/mens-basketball/coaches",
+      "team": "Houston",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://hcuhuskies.com/sports/mens-basketball/coaches",
+      "team": "Houston Christian",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://hubison.com/sports/mens-basketball/coaches",
+      "team": "Howard",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://govandals.com/sports/mens-basketball/coaches",
+      "team": "Idaho",
+      "conference": "Big Sky",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://isubengals.com/sports/mens-basketball/coaches",
+      "team": "Idaho State",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fightingillini.com/sports/mens-basketball/coaches",
+      "team": "Illinois",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goredbirds.com/sports/mens-basketball/coaches",
+      "team": "Illinois State",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://uiwcardinals.com/sports/mens-basketball/coaches",
+      "team": "Incarnate Word",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://iuhoosiers.com/sports/mens-basketball/coaches",
+      "team": "Indiana",
+      "conference": "Big 10",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gosycamores.com/sports/mens-basketball/coaches",
+      "team": "Indiana State",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://ionagaels.com/sports/mens-basketball/coaches",
+      "team": "Iona",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://hawkeyesports.com/staff-directory/department/mens-basketball",
+      "team": "Iowa",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://cyclones.com/sports/mens-basketball/coaches",
+      "team": "Iowa State",
+      "conference": "Big 12",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://iuindyjags.com/sports/mens-basketball/coaches",
+      "team": "IUPUI",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gojsutigers.com/sports/mens-basketball/coaches",
+      "team": "Jackson State",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://judolphins.com/sports/mens-basketball/coaches",
+      "team": "Jacksonville",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://jaxstatesports.com/sports/mens-basketball/coaches",
+      "team": "Jacksonville State",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://jmusports.com/sports/mens-basketball/coaches",
+      "team": "James Madison",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://kuathletics.com/sports/mens-basketball/coaches",
+      "team": "Kansas",
+      "conference": "Big 12",
+      "client": "Former Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://www.kstatesports.com/sports/mens-basketball/coaches",
+      "team": "Kansas State",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://ksuowls.com/sports/mens-basketball/coaches",
+      "team": "Kennesaw State",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://kentstatesports.com/sports/mens-basketball/coaches",
+      "team": "Kent State",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ukathletics.com/staff-directory/basketball-mens",
+      "team": "Kentucky",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goexplorers.com/sports/mens-basketball/coaches",
+      "team": "La Salle",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goleopards.com/sports/mens-basketball/coaches",
+      "team": "Lafayette",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lamarcardinals.com/sports/mens-basketball/coaches",
+      "team": "Lamar",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lemoynedolphins.com/sports/mens-basketball/coaches",
+      "team": "Le Moyne",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lehighsports.com/sports/mens-basketball/coaches",
+      "team": "Lehigh",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://libertyflames.com/sports/mens-basketball/coaches",
+      "team": "Liberty",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://lindenwoodlions.com/sports/mens-basketball/coaches",
+      "team": "Lindenwood",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lipscombsports.com/sports/mens-basketball/coaches",
+      "team": "Lipscomb",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lmulions.com/sports/mens-basketball/coaches",
+      "team": "LMU",
+      "conference": "WCC",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://longbeachstate.com/sports/mens-basketball/coaches",
+      "team": "Long Beach State",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.liuathletics.com/sports/mens-basketball/coaches",
+      "team": "Long Island",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://longwoodlancers.com/sports/mens-basketball/coaches",
+      "team": "Longwood",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ragincajuns.com/sports/mens-basketball/coaches",
+      "team": "Louisiana Lafayette",
+      "conference": "Sun Belt",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ulmwarhawks.com/sports/mens-basketball/coaches",
+      "team": "Louisiana Monroe",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://latechsports.com/sports/mens-basketball/coaches",
+      "team": "Louisiana Tech",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gocards.com/sports/mens-basketball/coaches",
+      "team": "Louisville",
+      "conference": "ACC",
+      "client": "Former Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://loyolaramblers.com/sports/mens-basketball/coaches",
+      "team": "Loyola Chicago",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://loyolagreyhounds.com/sports/mens-basketball/coaches",
+      "team": "Loyola Maryland",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lsusports.net/staff-directory/mens-basketball",
+      "team": "LSU",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goblackbears.com/sports/mens-basketball/coaches/2024-25#TODO",
+      "team": "Maine",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gojaspers.com/sports/mens-basketball/coaches",
+      "team": "Manhattan",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goredfoxes.com/sports/mens-basketball/coaches",
+      "team": "Marist",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gomarquette.com/sports/mens-basketball/coaches",
+      "team": "Marquette",
+      "conference": "Big East",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://herdzone.com/sports/mens-basketball/coaches",
+      "team": "Marshall",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://umterps.com/sports/mens-basketball/coaches",
+      "team": "Maryland",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://easternshorehawks.com/sports/mens-basketball/coaches",
+      "team": "Maryland East Shore",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://umassathletics.com/sports/mens-basketball/coaches",
+      "team": "Massachusetts",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://mcneesesports.com/sports/mens-basketball/coaches",
+      "team": "McNeese State",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gotigersgo.com/sports/mens-basketball/coaches",
+      "team": "Memphis",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://mercerbears.com/sports/mens-basketball/coaches",
+      "team": "Mercer",
+      "conference": "SoCon",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://hurstathletics.com/sports/mens-basketball/coaches",
+      "team": "Mercyhurst",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://merrimackathletics.com/sports/mens-basketball/coaches",
+      "team": "Merrimack",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://miamihurricanes.com/staff-directory/mens-basketball",
+      "team": "Miami",
+      "conference": "ACC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://miamiredhawks.com/sports/mens-basketball/coaches",
+      "team": "Miami (OH)",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://mgoblue.com/sports/mens-basketball/coaches",
+      "team": "Michigan",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://msuspartans.com/sports/mens-basketball/coaches",
+      "team": "Michigan State",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://mkepanthers.com/sports/mens-basketball/coaches",
+      "team": "Milwaukee",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gophersports.com/sports/mens-basketball/coaches",
+      "team": "Minnesota",
+      "conference": "Big 10",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://hailstate.com/sports/mens-basketball/coaches",
+      "team": "Mississippi State",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://mvsusports.com/sports/mens-basketball/coaches",
+      "team": "Mississippi Valley State",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://mutigers.com/sports/mens-basketball/coaches",
+      "team": "Missouri",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://missouristatebears.com/sports/mens-basketball/coaches",
+      "team": "Missouri State",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://monmouthhawks.com/sports/mens-basketball/coaches",
+      "team": "Monmouth",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gogriz.com/sports/mens-basketball/coaches",
+      "team": "Montana",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://msubobcats.com/sports/mens-basketball/coaches",
+      "team": "Montana State",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://msueagles.com/sports/mens-basketball/coaches",
+      "team": "Morehead State",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://morganstatebears.com/sports/mens-basketball/coaches",
+      "team": "Morgan State",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://mountathletics.com/sports/mens-basketball/coaches",
+      "team": "Mount Saint Mary's",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goblueraiders.com/sports/mens-basketball/coaches",
+      "team": "MTSU",
+      "conference": "CUSA",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goracers.com/sports/mens-basketball/coaches",
+      "team": "Murray State",
+      "conference": "MVC",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://navysports.com/sports/mens-basketball/coaches",
+      "team": "Navy",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gopack.com/sports/mens-basketball/coaches",
+      "team": "NC State",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://huskers.com/staff-directory/department/mens-basketball",
+      "team": "Nebraska",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://omavs.com/sports/mens-basketball/coaches",
+      "team": "Nebraska Omaha",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://nevadawolfpack.com/sports/mens-basketball/coaches",
+      "team": "Nevada",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://unhwildcats.com/sports/mens-basketball/coaches",
+      "team": "New Hampshire",
+      "conference": "America East",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://golobos.com/staff-directory/department/basketball-mens",
+      "team": "New Mexico",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.nmstatesports.com/sports/mens-basketball/coaches",
+      "team": "New Mexico State",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://unoprivateers.com/sports/mens-basketball/coaches",
+      "team": "New Orleans",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://purpleeagles.com/sports/mens-basketball/coaches",
+      "team": "Niagara",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://geauxcolonels.com/sports/mens-basketball/coaches",
+      "team": "Nicholls State",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://njithighlanders.com/sports/mens-basketball/coaches",
+      "team": "NJIT",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://nsuspartans.com/sports/mens-basketball/coaches",
+      "team": "Norfolk State",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.roarlions.com/sports/mens-basketball/coaches",
+      "team": "North Alabama",
+      "conference": "ASun",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goheels.com/sports/mens-basketball/coaches",
+      "team": "North Carolina",
+      "conference": "ACC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://ncataggies.com/sports/mens-basketball/coaches",
+      "team": "North Carolina A&T",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://nccueaglepride.com/sports/mens-basketball/coaches",
+      "team": "North Carolina Central",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.fightinghawks.com/sports/mens-basketball/coaches",
+      "team": "North Dakota",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobison.com/sports/mens-basketball/coaches",
+      "team": "North Dakota State",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://unfospreys.com/sports/mens-basketball/coaches",
+      "team": "North Florida",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://meangreensports.com/sports/mens-basketball/coaches",
+      "team": "North Texas",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://nuhuskies.com/sports/mens-basketball/coaches",
+      "team": "Northeastern",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://nauathletics.com/sports/mens-basketball/coaches",
+      "team": "Northern Arizona",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uncbears.com/sports/mens-basketball/coaches",
+      "team": "Northern Colorado",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.niuhuskies.com/sports/mens-basketball/coaches",
+      "team": "Northern Illinois",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://unipanthers.com/sports/mens-basketball/coaches",
+      "team": "Northern Iowa",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://nkunorse.com/sports/mens-basketball/coaches",
+      "team": "Northern Kentucky",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://nusports.com/sports/mens-basketball/coaches",
+      "team": "Northwestern",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://nsudemons.com/sports/mens-basketball/coaches",
+      "team": "Northwestern State",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fightingirish.com/staff-directory/sports/mbball",
+      "team": "Notre Dame",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goldengrizzlies.com/sports/mens-basketball/coaches",
+      "team": "Oakland",
+      "conference": "Horizon",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ohiobobcats.com/sports/mbball/coaches",
+      "team": "Ohio",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ohiostatebuckeyes.com/sports/mens-basketball/coaches",
+      "team": "Ohio State",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://soonersports.com/sports/mens-basketball/coaches",
+      "team": "Oklahoma",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://okstate.com/sports/mens-basketball/coaches",
+      "team": "Oklahoma State",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://odusports.com/staff-directory/department/mens-basketball",
+      "team": "Old Dominion",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://olemisssports.com/sports/mens-basketball/coaches",
+      "team": "Ole Miss",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://oruathletics.com/sports/mens-basketball/coaches",
+      "team": "Oral Roberts",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goducks.com/sports/mens-basketball/coaches",
+      "team": "Oregon",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://osubeavers.com/sports/mens-basketball/coaches",
+      "team": "Oregon State",
+      "conference": "Pac-12",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://pacifictigers.com/sports/mens-basketball/coaches",
+      "team": "Pacific",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://pennathletics.com/sports/mens-basketball/coaches",
+      "team": "Penn",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gopsusports.com/staff-directory/department/mens-basketball",
+      "team": "Penn State",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://pepperdinewaves.com/sports/mens-basketball/coaches",
+      "team": "Pepperdine",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://pittsburghpanthers.com/sports/mens-basketball/coaches",
+      "team": "Pittsburgh",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://portlandpilots.com/sports/mens-basketball/coaches",
+      "team": "Portland",
+      "conference": "WCC",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goviks.com/sports/mens-basketball/coaches",
+      "team": "Portland State",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://pvpanthers.com/sports/mens-basketball/coaches",
+      "team": "Prairie View A&M",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobluehose.com/sports/mens-basketball/coaches",
+      "team": "Presbyterian",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goprincetontigers.com/sports/mens-basketball/coaches",
+      "team": "Princeton",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://friars.com/sports/mens-basketball/coaches",
+      "team": "Providence",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://purduesports.com/staff-directory/department/mens-basketball",
+      "team": "Purdue",
+      "conference": "Big 10",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gomastodons.com/sports/mens-basketball/coaches",
+      "team": "Purdue Fort Wayne",
+      "conference": "Horizon",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://queensathletics.com/sports/mens-basketball/coaches",
+      "team": "Queens",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobobcats.com/sports/mens-basketball/coaches",
+      "team": "Quinnipiac",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://radfordathletics.com/sports/mens-basketball/coaches",
+      "team": "Radford",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gorhody.com/sports/mens-basketball/coaches",
+      "team": "Rhode Island",
+      "conference": "A10",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://riceowls.com/sports/mens-basketball/coaches",
+      "team": "Rice",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://richmondspiders.com/sports/mens-basketball/coaches",
+      "team": "Richmond",
+      "conference": "A10",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gobroncs.com/sports/mens-basketball/coaches",
+      "team": "Rider",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://rmucolonials.com/sports/mens-basketball/coaches",
+      "team": "Robert Morris",
+      "conference": "Horizon",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://scarletknights.com/sports/mens-basketball/coaches",
+      "team": "Rutgers",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://hornetsports.com/sports/mens-basketball/coaches",
+      "team": "Sacramento State",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://sacredheartpioneers.com/sports/mens-basketball/coaches",
+      "team": "Sacred Heart",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobonnies.com/sports/mens-basketball/coaches",
+      "team": "Saint Bonaventure",
+      "conference": "A10",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.sfuathletics.com/sports/mens-basketball/coaches",
+      "team": "Saint Francis",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://sjuhawks.com/sports/mens-basketball/coaches",
+      "team": "Saint Joseph's",
+      "conference": "A10",
+      "client": "Former Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://slubillikens.com/sports/mens-basketball/coaches",
+      "team": "Saint Louis",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.smcgaels.com/sports/mens-basketball/coaches",
+      "team": "Saint Mary's",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://saintpeterspeacocks.com/sports/mens-basketball/coaches",
+      "team": "Saint Peter's",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobearkats.com/sports/mens-basketball/coaches",
+      "team": "Sam Houston State",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://samfordsports.com/sports/mens-basketball/coaches",
+      "team": "Samford",
+      "conference": "SoCon",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.usdtoreros.com/sports/mens-basketball/coaches",
+      "team": "San Diego",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goaztecs.com/staff-directory/department/basketball-mens-594-6249",
+      "team": "San Diego State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://usfdons.com/sports/mens-basketball/coaches",
+      "team": "San Francisco",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://sjsuspartans.com/staff-directory/department/mens-basketball",
+      "team": "San Jose State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://santaclarabroncos.com/sports/mens-basketball/coaches",
+      "team": "Santa Clara",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goseattleu.com/staff-directory/department/m-basketball",
+      "team": "Seattle",
+      "conference": "WAC",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://semoredhawks.com/sports/mens-basketball/coaches",
+      "team": "SEMO",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://shupirates.com/sports/mens-basketball/coaches",
+      "team": "Seton Hall",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://sienasaints.com/sports/mens-basketball/coaches",
+      "team": "Siena",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://siuecougars.com/sports/mens-basketball/coaches",
+      "team": "SIUE",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://smumustangs.com/sports/mens-basketball/coaches",
+      "team": "SMU",
+      "conference": "ACC",
+      "client": "Former Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://usajaguars.com/sports/mens-basketball/coaches",
+      "team": "South Alabama",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gamecocksonline.com/staff-directory/mens-basketball-803-777-4197",
+      "team": "South Carolina",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://www.scsuathletics.com/sports/mens-basketball/coaches",
+      "team": "South Carolina State",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goyotes.com/sports/mens-basketball/coaches",
+      "team": "South Dakota",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gojacks.com/sports/mens-basketball/coaches",
+      "team": "South Dakota State",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gousfbulls.com/sports/mens-basketball/coaches",
+      "team": "South Florida",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://lionsports.net/sports/mens-basketball/coaches",
+      "team": "Southeastern LA",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gojagsports.com/sports/mens-basketball/coaches",
+      "team": "Southern",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://siusalukis.com/sports/mens-basketball/coaches",
+      "team": "Southern Illinois",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://usiscreamingeagles.com/sports/mens-basketball/coaches",
+      "team": "Southern Indiana",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://southernmiss.com/sports/mens-basketball/coaches",
+      "team": "Southern Miss",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://suutbirds.com/sports/mens-basketball/coaches",
+      "team": "Southern Utah",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://redstormsports.com/sports/mens-basketball/coaches",
+      "team": "St. John's",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://tommiesports.com/sports/mbball/coaches",
+      "team": "St. Thomas",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gostanford.com/staff-directory/department/mens-basketball",
+      "team": "Stanford",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://sfajacks.com/sports/mens-basketball/coaches",
+      "team": "Stephen F. Austin",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gohatters.com/sports/mens-basketball/coaches",
+      "team": "Stetson",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://stonehillskyhawks.com/sports/mens-basketball/coaches",
+      "team": "Stonehill",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://stonybrookathletics.com/sports/mens-basketball/coaches",
+      "team": "Stony Brook",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://cuse.com/sports/mens-basketball/coaches",
+      "team": "Syracuse",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://tarletonsports.com/sports/mens-basketball/coaches",
+      "team": "Tarleton Statte",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gofrogs.com/sports/mens-basketball/coaches",
+      "team": "TCU",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://owlsports.com/sports/mens-basketball/coaches",
+      "team": "Temple",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://utsports.com/sports/mens-basketball/coaches",
+      "team": "Tennessee",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://tsutigers.com/sports/mens-basketball/coaches",
+      "team": "Tennessee State",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.ttusports.com/information/directory/index",
+      "team": "Tennessee Tech",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://texaslonghorns.com/sports/mens-basketball/coaches",
+      "team": "Texas",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://12thman.com/sports/mens-basketball/coaches",
+      "team": "Texas A&M",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goislanders.com/sports/mens-basketball/coaches",
+      "team": "Texas A&M CC",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lionathletics.com/sports/mens-basketball/coaches",
+      "team": "Texas A&M Commerce",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://tsusports.com/sports/mens-basketball/coaches",
+      "team": "Texas Southern",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://txst.com/sports/mens-basketball/coaches",
+      "team": "Texas State",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://texastech.com/sports/mens-basketball/coaches",
+      "team": "Texas Tech",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://citadelsports.com/sports/mens-basketball/coaches",
+      "team": "The Citadel",
+      "conference": "SoCon",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://utrockets.com/sports/mens-basketball/coaches",
+      "team": "Toledo",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://towsontigers.com/sports/mens-basketball/coaches",
+      "team": "Towson",
+      "conference": "CAA",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.troytrojans.com/sports/mens-basketball/coaches",
+      "team": "Troy",
+      "conference": "Sun Belt",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.tulanegreenwave.com/sports/mens-basketball/coaches",
+      "team": "Tulane",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://tulsahurricane.com/sports/mens-basketball/coaches",
+      "team": "Tulsa",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://uabsports.com/sports/mens-basketball/coaches",
+      "team": "UAB",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://ucdavisaggies.com/sports/mens-basketball/coaches",
+      "team": "UC Davis",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ucirvinesports.com/sports/mens-basketball/coaches",
+      "team": "UC Irvine",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gohighlanders.com/sports/mens-basketball/coaches",
+      "team": "UC Riverside",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ucsdtritons.com/sports/mens-basketball/coaches",
+      "team": "UC San Diego",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ucsbgauchos.com/sports/mens-basketball/coaches",
+      "team": "UC Santa Barbara",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ucfknights.com/staff-directory/department/mens-basketball",
+      "team": "UCF",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://uclabruins.com/sports/mens-basketball/coaches",
+      "team": "UCLA",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://uconnhuskies.com/sports/mens-basketball/coaches",
+      "team": "UConn",
+      "conference": "Big East",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://uicflames.com/sports/mens-basketball/coaches",
+      "team": "UIC",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goriverhawks.com/sports/mens-basketball/coaches",
+      "team": "UMass Lowell",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://umbcretrievers.com/sports/mens-basketball/coaches",
+      "team": "UMBC",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://kcroos.com/sports/mens-basketball/coaches",
+      "team": "UMKC",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uncabulldogs.com/sports/mens-basketball/coaches",
+      "team": "UNC Asheville",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uncwsports.com/sports/mens-basketball/coaches",
+      "team": "UNC Wilmington",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uncgspartans.com/sports/mens-basketball/coaches",
+      "team": "UNCG",
+      "conference": "SoCon",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://unlvrebels.com/sports/mens-basketball/coaches",
+      "team": "UNLV",
+      "conference": "MWC",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://usctrojans.com/sports/mens-basketball/coaches",
+      "team": "USC",
+      "conference": "Big 10",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://upstatespartans.com/sports/mens-basketball/coaches",
+      "team": "USC Upstate",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://utamavs.com/sports/mens-basketball/coaches",
+      "team": "UT Arlington",
+      "conference": "WAC",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://utmsports.com/sports/mens-basketball/coaches",
+      "team": "UT-Martin",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://utahutes.com/sports/mens-basketball/coaches",
+      "team": "Utah",
+      "conference": "Big 12",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://utahstateaggies.com/sports/mens-basketball/coaches",
+      "team": "Utah State",
+      "conference": "MWC",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://utahtechtrailblazers.com/sports/mens-basketball/coaches",
+      "team": "Utah Tech",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gouvu.com/sports/mens-basketball/coaches",
+      "team": "Utah Valley",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://utepminers.com/sports/mens-basketball/coaches",
+      "team": "UTEP",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goutrgv.com/sports/mens-basketball/coaches",
+      "team": "UTRGV",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goutsa.com/staff-directory/department/mens-basketball",
+      "team": "UTSA",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://valpoathletics.com/sports/mens-basketball/coaches",
+      "team": "Valparaiso",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://vucommodores.com/staff-directory/mens-basketball",
+      "team": "Vanderbilt",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://vcuathletics.com/sports/mens-basketball/coaches",
+      "team": "VCU",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://uvmathletics.com/sports/mens-basketball/coaches",
+      "team": "Vermont",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://villanova.com/sports/mens-basketball/coaches",
+      "team": "Villanova",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://virginiasports.com/staff-directory/basketball-mens-john-paul-jones-arena-po-box-400823-charlottesville-va-22904-4823-phone-434-982-5400-fax-434-982-5425",
+      "team": "Virginia",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://hokiesports.com/staff-directory/department/basketball-mens",
+      "team": "Virginia Tech",
+      "conference": "ACC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://vmikeydets.com/sports/mens-basketball/coaches",
+      "team": "VMI",
+      "conference": "SoCon",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://wagnerathletics.com/sports/mens-basketball/coaches",
+      "team": "Wagner",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://godeacs.com/sports/mens-basketball/coaches",
+      "team": "Wake Forest",
+      "conference": "ACC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gohuskies.com/sports/mens-basketball/coaches",
+      "team": "Washington",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://wsucougars.com/sports/mens-basketball/coaches",
+      "team": "Washington State",
+      "conference": "Pac-12",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://weberstatesports.com/sports/mens-basketball/coaches",
+      "team": "Weber State",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uwgathletics.com/sports/mens-basketball/coaches",
+      "team": "West Georgia",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://wvusports.com/sports/mens-basketball/coaches",
+      "team": "West Virginia",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://catamountsports.com/sports/mens-basketball/coaches",
+      "team": "Western Carolina",
+      "conference": "SoCon",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goleathernecks.com/sports/mens-basketball/coaches",
+      "team": "Western Illinois",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.wkusports.com/sports/mens-basketball/coaches",
+      "team": "Western Kentucky",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://wmubroncos.com/sports/mens-basketball/coaches",
+      "team": "Western Michigan",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goshockers.com/sports/mens-basketball/coaches",
+      "team": "Wichita State",
+      "conference": "AAC",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.tribeathletics.com/sports/mens-basketball/coaches",
+      "team": "William & Mary",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://winthropeagles.com/sports/mens-basketball/coaches",
+      "team": "Winthrop",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uwbadgers.com/sports/mens-basketball/coaches",
+      "team": "Wisconsin",
+      "conference": "Big 10",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://woffordterriers.com/sports/mens-basketball/coaches",
+      "team": "Wofford",
+      "conference": "SoCon",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://wsuraiders.com/sports/mens-basketball/coaches",
+      "team": "Wright State",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gowyo.com/sports/mens-basketball/coaches",
+      "team": "Wyoming",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goxavier.com/sports/mens-basketball/coaches",
+      "team": "Xavier",
+      "conference": "Big East",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://yalebulldogs.com/sports/mens-basketball/coaches",
+      "team": "Yale",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://ysusports.com/sports/mens-basketball/coaches",
+      "team": "Youngstown State",
+      "conference": "Horizon",
+      "client": "HDI Client",
+      "level": "LM"
+    }
+  ],
+  "wbb": [
+    {
+      "url": "https://acusports.com/sports/womens-basketball/coaches",
+      "team": "Abilene Christian",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goairforcefalcons.com/sports/womens-basketball/coaches",
+      "team": "Air Force",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gozips.com/sports/womens-basketball/coaches",
+      "team": "Akron",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://rolltide.com/sports/womens-basketball/coaches",
+      "team": "Alabama",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://aamusports.com/sports/womens-basketball/coaches",
+      "team": "Alabama A&M",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://bamastatesports.com/sports/womens-basketball/coaches",
+      "team": "Alabama State",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ualbanysports.com/sports/womens-basketball/coaches",
+      "team": "Albany",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://alcornsports.com/sports/womens-basketball/coaches",
+      "team": "Alcorn State",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://aueagles.com/sports/womens-basketball/coaches",
+      "team": "American",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://appstatesports.com/sports/womens-basketball/coaches",
+      "team": "Appalachian State",
+      "conference": "Sun Belt",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://arizonawildcats.com/sports/womens-basketball/coaches",
+      "team": "Arizona",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://thesundevils.com/staff-directory/department/basketball-womens",
+      "team": "Arizona State",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://arkansasrazorbacks.com/staff-directory",
+      "team": "Arkansas",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://lrtrojans.com/sports/womens-basketball/coaches",
+      "team": "Arkansas Little Rock",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uapblionsroar.com/sports/womens-basketball/coaches",
+      "team": "Arkansas Pine Bluff",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://astateredwolves.com/sports/womens-basketball/coaches",
+      "team": "Arkansas State",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goarmywestpoint.com/sports/womens-basketball/coaches",
+      "team": "Army",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://auburntigers.com/staff-directory/department/basketball-w-334-844-9200",
+      "team": "Auburn",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://letsgopeay.com/sports/womens-basketball/coaches/2024-25#TODO",
+      "team": "Austin Peay",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ballstatesports.com/sports/womens-basketball/coaches",
+      "team": "Ball State",
+      "conference": "MAC",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://baylorbears.com/sports/womens-basketball/coaches",
+      "team": "Baylor",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://athletics.bellarmine.edu/sports/womens-basketball/coaches",
+      "team": "Bellarmine",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://belmontbruins.com/sports/womens-basketball/coaches",
+      "team": "Belmont",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://bcuathletics.com/sports/womens-basketball/coaches",
+      "team": "Bethune Cookman",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://bubearcats.com/sports/womens-basketball/coaches",
+      "team": "Binghamton",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://broncosports.com/sports/womens-basketball/coaches",
+      "team": "Boise State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goterriers.com/sports/womens-basketball/coaches",
+      "team": "Boston",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://bceagles.com/sports/womens-basketball/coaches",
+      "team": "Boston College",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://bgsufalcons.com/sports/womens-basketball/coaches",
+      "team": "Bowling Green",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://bradleybraves.com/sports/womens-basketball/coaches",
+      "team": "Bradley",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://brownbears.com/sports/womens-basketball/coaches",
+      "team": "Brown",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://bryantbulldogs.com/sports/womens-basketball/coaches",
+      "team": "Bryant",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.bucknellbison.com/sports/womens-basketball/coaches",
+      "team": "Bucknell",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ubbulls.com/sports/womens-basketball/coaches",
+      "team": "Buffalo",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://butlersports.com/sports/womens-basketball/coaches",
+      "team": "Butler",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://byucougars.com/staff-directory/department/womens-basketball",
+      "team": "BYU",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://cbulancers.com/sports/womens-basketball/coaches",
+      "team": "Cal Baptist",
+      "conference": "WAC",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gopoly.com/sports/womens-basketball/coaches",
+      "team": "Cal Poly",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://calbears.com/sports/womens-basketball/coaches",
+      "team": "California",
+      "conference": "ACC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gocamels.com/sports/womens-basketball/coaches",
+      "team": "Campbell",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gogriffs.com/sports/womens-basketball/coaches",
+      "team": "Canisius",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ucasports.com/sports/womens-basketball/coaches",
+      "team": "Central Arkansas",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ccsubluedevils.com/athletics/directory/index",
+      "team": "Central Connecticut State",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://cmuchippewas.com/sports/womens-basketball/coaches",
+      "team": "Central Michigan",
+      "conference": "MAC",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.csusports.com/sports/womens-basketball/coaches",
+      "team": "Charleston Southern",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://charlotte49ers.com/sports/womens-basketball/coaches",
+      "team": "Charlotte",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gomocs.com/sports/womens-basketball/coaches",
+      "team": "Chattanooga",
+      "conference": "SoCon",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.gocsucougars.com/sports/womens-basketball/coaches",
+      "team": "Chicago State",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobearcats.com/staff-directory/department/womens-basketball-suite-670-513-556-0627-fax-513-556-3247",
+      "team": "Cincinnati",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://clemsontigers.com/staff-directory/sports/w-basketball",
+      "team": "Clemson",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://csuvikings.com/sports/womens-basketball/coaches",
+      "team": "Cleveland State",
+      "conference": "Horizon",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goccusports.com/sports/womens-basketball/coaches",
+      "team": "Coastal Carolina",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://colgateathletics.com/sports/womens-basketball/coaches",
+      "team": "Colgate",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://cofcsports.com/sports/womens-basketball/coaches",
+      "team": "College of Charleston",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://cubuffs.com/sports/womens-basketball/coaches",
+      "team": "Colorado",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://csurams.com/sports/womens-basketball/coaches",
+      "team": "Colorado State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gocolumbialions.com/sports/womens-basketball/coaches",
+      "team": "Columbia",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://coppinstatesports.com/sports/womens-basketball/coaches",
+      "team": "Coppin State",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://cornellbigred.com/sports/womens-basketball/coaches",
+      "team": "Cornell",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gocreighton.com/sports/womens-basketball/coaches",
+      "team": "Creighton",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gorunners.com/sports/womens-basketball/coaches",
+      "team": "CSU Bakersfield",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fullertontitans.com/sports/womens-basketball/coaches",
+      "team": "CSU Fullerton",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gomatadors.com/sports/womens-basketball/coaches",
+      "team": "CSU Northridge",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://dartmouthsports.com/sports/womens-basketball/coaches",
+      "team": "Dartmouth",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://davidsonwildcats.com/sports/womens-basketball/coaches",
+      "team": "Davidson",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://daytonflyers.com/sports/womens-basketball/coaches",
+      "team": "Dayton",
+      "conference": "A10",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://bluehens.com/sports/womens-basketball/coaches",
+      "team": "Delaware",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://dsuhornets.com/sports/womens-basketball/coaches",
+      "team": "Delaware State",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://denverpioneers.com/sports/womens-basketball/coaches",
+      "team": "Denver",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://depaulbluedemons.com/sports/womens-basketball/coaches",
+      "team": "DePaul",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://detroittitans.com/sports/womens-basketball/coaches",
+      "team": "Detroit Mercy",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://godrakebulldogs.com/sports/womens-basketball/coaches",
+      "team": "Drake",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://drexeldragons.com/sports/womens-basketball/coaches",
+      "team": "Drexel",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goduke.com/sports/womens-basketball/coaches",
+      "team": "Duke",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goduquesne.com/sports/womens-basketball/coaches",
+      "team": "Duquesne",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://ecupirates.com/sports/womens-basketball/coaches",
+      "team": "East Carolina",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://eiupanthers.com/sports/womens-basketball/coaches",
+      "team": "Eastern Illinois",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ekusports.com/sports/womens-basketball/coaches",
+      "team": "Eastern Kentucky",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://emueagles.com/sports/womens-basketball/coaches",
+      "team": "Eastern Michigan",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goeags.com/sports/womens-basketball/coaches",
+      "team": "Eastern Washington",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://elonphoenix.com/sports/womens-basketball/coaches",
+      "team": "Elon",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://etsubucs.com/sports/womens-basketball/coaches",
+      "team": "ETSU",
+      "conference": "SoCon",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gopurpleaces.com/sports/womens-basketball/coaches",
+      "team": "Evansville",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://fairfieldstags.com/sports/womens-basketball/coaches",
+      "team": "Fairfield",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fduknights.com/sports/womens-basketball/coaches",
+      "team": "Fairleigh Dickinson",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fausports.com/sports/womens-basketball/coaches",
+      "team": "FAU",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://fgcuathletics.com/sports/womens-basketball/coaches",
+      "team": "FGCU",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fiusports.com/sports/womens-basketball/coaches",
+      "team": "FIU",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://floridagators.com/sports/womens-basketball/coaches",
+      "team": "Florida",
+      "conference": "SEC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://famuathletics.com/sports/womens-basketball/coaches",
+      "team": "Florida A&M",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://seminoles.com/sports/womens-basketball/coaches",
+      "team": "Florida State",
+      "conference": "ACC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://fordhamsports.com/sports/womens-basketball/coaches",
+      "team": "Fordham",
+      "conference": "A10",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gobulldogs.com/sports/womens-basketball/coaches",
+      "team": "Fresno State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://furmanpaladins.com/sports/womens-basketball/coaches",
+      "team": "Furman",
+      "conference": "SoCon",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gwusports.com/sports/womens-basketball/coaches",
+      "team": "Gardner Webb",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gomason.com/sports/womens-basketball/coaches",
+      "team": "George Mason",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gwsports.com/sports/womens-basketball/coaches",
+      "team": "George Washington",
+      "conference": "A10",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://guhoyas.com/sports/womens-basketball/coaches",
+      "team": "Georgetown",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://georgiadogs.com/sports/womens-basketball/coaches",
+      "team": "Georgia",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gseagles.com/sports/womens-basketball/coaches",
+      "team": "Georgia Southern",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://georgiastatesports.com/sports/womens-basketball/coaches",
+      "team": "Georgia State",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ramblinwreck.com/staff-directory",
+      "team": "Georgia Tech",
+      "conference": "ACC",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gozags.com/sports/womens-basketball/coaches",
+      "team": "Gonzaga",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gsutigers.com/sports/womens-basketball/coaches",
+      "team": "Grambling State",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gculopes.com/sports/womens-basketball/coaches",
+      "team": "Grand Canyon",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://greenbayphoenix.com/sports/womens-basketball/coaches",
+      "team": "Green Bay",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://hamptonpirates.com/sports/womens-basketball/coaches",
+      "team": "Hampton",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gocrimson.com/sports/womens-basketball/coaches",
+      "team": "Harvard",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://hawaiiathletics.com/sports/womens-basketball/coaches",
+      "team": "Hawaii",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://highpointpanthers.com/sports/womens-basketball/coaches",
+      "team": "High Point",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gohofstra.com/sports/womens-basketball/coaches",
+      "team": "Hofstra",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goholycross.com/sports/womens-basketball/coaches",
+      "team": "Holy Cross",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uhcougars.com/sports/womens-basketball/coaches",
+      "team": "Houston",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://hcuhuskies.com/sports/womens-basketball/coaches",
+      "team": "Houston Christian",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://hubison.com/sports/womens-basketball/coaches",
+      "team": "Howard",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://govandals.com/sports/womens-basketball/coaches",
+      "team": "Idaho",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://isubengals.com/sports/womens-basketball/coaches",
+      "team": "Idaho State",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fightingillini.com/sports/womens-basketball/coaches",
+      "team": "Illinois",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goredbirds.com/sports/womens-basketball/coaches",
+      "team": "Illinois State",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://uiwcardinals.com/sports/womens-basketball/coaches",
+      "team": "Incarnate Word",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://iuhoosiers.com/sports/womens-basketball/coaches",
+      "team": "Indiana",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gosycamores.com/sports/womens-basketball/coaches",
+      "team": "Indiana State",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://ionagaels.com/sports/womens-basketball/coaches",
+      "team": "Iona",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://hawkeyesports.com/staff-directory/department/womens-basketball",
+      "team": "Iowa",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://cyclones.com/sports/womens-basketball/coaches",
+      "team": "Iowa State",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://iuindyjags.com/sports/womens-basketball/coaches",
+      "team": "IUPUI",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gojsutigers.com/sports/womens-basketball/coaches",
+      "team": "Jackson State",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://judolphins.com/sports/womens-basketball/coaches",
+      "team": "Jacksonville",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://jaxstatesports.com/sports/womens-basketball/coaches",
+      "team": "Jacksonville State",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://jmusports.com/sports/womens-basketball/coaches",
+      "team": "James Madison",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://kuathletics.com/sports/womens-basketball/coaches",
+      "team": "Kansas",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://www.kstatesports.com/sports/womens-basketball/coaches",
+      "team": "Kansas State",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://ksuowls.com/sports/womens-basketball/coaches",
+      "team": "Kennesaw State",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://kentstatesports.com/sports/womens-basketball/coaches",
+      "team": "Kent State",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ukathletics.com/staff-directory/basketball-womens",
+      "team": "Kentucky",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goexplorers.com/sports/womens-basketball/coaches",
+      "team": "La Salle",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goleopards.com/sports/womens-basketball/coaches",
+      "team": "Lafayette",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lamarcardinals.com/sports/womens-basketball/coaches",
+      "team": "Lamar",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lemoynedolphins.com/sports/womens-basketball/coaches",
+      "team": "Le Moyne",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lehighsports.com/sports/womens-basketball/coaches",
+      "team": "Lehigh",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://libertyflames.com/sports/womens-basketball/coaches",
+      "team": "Liberty",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://lindenwoodlions.com/sports/womens-basketball/coaches",
+      "team": "Lindenwood",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lipscombsports.com/sports/womens-basketball/coaches",
+      "team": "Lipscomb",
+      "conference": "ASun",
+      "client": "Former Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lmulions.com/sports/womens-basketball/coaches",
+      "team": "LMU",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://longbeachstate.com/sports/womens-basketball/coaches",
+      "team": "Long Beach State",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.liuathletics.com/sports/womens-basketball/coaches",
+      "team": "Long Island",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://longwoodlancers.com/sports/womens-basketball/coaches",
+      "team": "Longwood",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ragincajuns.com/sports/womens-basketball/coaches",
+      "team": "Louisiana Lafayette",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ulmwarhawks.com/sports/womens-basketball/coaches",
+      "team": "Louisiana Monroe",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://latechsports.com/sports/womens-basketball/coaches",
+      "team": "Louisiana Tech",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gocards.com/sports/womens-basketball/coaches",
+      "team": "Louisville",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://loyolaramblers.com/sports/womens-basketball/coaches",
+      "team": "Loyola Chicago",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://loyolagreyhounds.com/sports/womens-basketball/coaches",
+      "team": "Loyola Maryland",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lsusports.net/staff-directory/womens-basketball",
+      "team": "LSU",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goblackbears.com/sports/womens-basketball/coaches",
+      "team": "Maine",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gojaspers.com/sports/womens-basketball/coaches",
+      "team": "Manhattan",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goredfoxes.com/sports/womens-basketball/coaches",
+      "team": "Marist",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gomarquette.com/sports/womens-basketball/coaches",
+      "team": "Marquette",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://herdzone.com/sports/womens-basketball/coaches",
+      "team": "Marshall",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://umterps.com/sports/womens-basketball/coaches",
+      "team": "Maryland",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://easternshorehawks.com/sports/womens-basketball/coaches",
+      "team": "Maryland East Shore",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://umassathletics.com/sports/womens-basketball/coaches",
+      "team": "Massachusetts",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://mcneesesports.com/sports/womens-basketball/coaches",
+      "team": "McNeese State",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gotigersgo.com/sports/womens-basketball/coaches",
+      "team": "Memphis",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://mercerbears.com/sports/womens-basketball/coaches",
+      "team": "Mercer",
+      "conference": "SoCon",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://hurstathletics.com/sports/womens-basketball/coaches",
+      "team": "Mercyhurst",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://merrimackathletics.com/sports/womens-basketball/coaches",
+      "team": "Merrimack",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://miamihurricanes.com/staff-directory/womens-basketball",
+      "team": "Miami",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://miamiredhawks.com/sports/womens-basketball/coaches",
+      "team": "Miami (OH)",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://mgoblue.com/sports/womens-basketball/coaches",
+      "team": "Michigan",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://msuspartans.com/sports/womens-basketball/coaches",
+      "team": "Michigan State",
+      "conference": "Big 10",
+      "client": "Former Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://mkepanthers.com/sports/womens-basketball/coaches",
+      "team": "Milwaukee",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gophersports.com/sports/womens-basketball/coaches",
+      "team": "Minnesota",
+      "conference": "Big 10",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://hailstate.com/sports/womens-basketball/coaches",
+      "team": "Mississippi State",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://mvsusports.com/sports/womens-basketball/coaches",
+      "team": "Mississippi Valley State",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://mutigers.com/sports/womens-basketball/coaches",
+      "team": "Missouri",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://missouristatebears.com/sports/womens-basketball/coaches",
+      "team": "Missouri State",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://monmouthhawks.com/sports/womens-basketball/coaches",
+      "team": "Monmouth",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gogriz.com/sports/womens-basketball/coaches",
+      "team": "Montana",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://msubobcats.com/sports/womens-basketball/coaches",
+      "team": "Montana State",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://msueagles.com/sports/womens-basketball/coaches",
+      "team": "Morehead State",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://morganstatebears.com/sports/womens-basketball/coaches",
+      "team": "Morgan State",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://mountathletics.com/sports/womens-basketball/coaches",
+      "team": "Mount Saint Mary's",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goblueraiders.com/sports/womens-basketball/coaches",
+      "team": "MTSU",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goracers.com/sports/womens-basketball/coaches",
+      "team": "Murray State",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://navysports.com/sports/womens-basketball/coaches",
+      "team": "Navy",
+      "conference": "Patriot",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gopack.com/sports/womens-basketball/coaches",
+      "team": "NC State",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://huskers.com/staff-directory/department/womens-basketball",
+      "team": "Nebraska",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://omavs.com/sports/womens-basketball/coaches",
+      "team": "Nebraska Omaha",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://nevadawolfpack.com/sports/womens-basketball/coaches",
+      "team": "Nevada",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://unhwildcats.com/sports/womens-basketball/coaches",
+      "team": "New Hampshire",
+      "conference": "America East",
+      "client": "Former Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://golobos.com/staff-directory/department/basketball-womens",
+      "team": "New Mexico",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.nmstatesports.com/sports/womens-basketball/coaches",
+      "team": "New Mexico State",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://unoprivateers.com/sports/womens-basketball/coaches",
+      "team": "New Orleans",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://purpleeagles.com/sports/womens-basketball/coaches",
+      "team": "Niagara",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://geauxcolonels.com/sports/womens-basketball/coaches",
+      "team": "Nicholls State",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://njithighlanders.com/sports/womens-basketball/coaches",
+      "team": "NJIT",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://nsuspartans.com/sports/womens-basketball/coaches",
+      "team": "Norfolk State",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.roarlions.com/sports/womens-basketball/coaches",
+      "team": "North Alabama",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goheels.com/sports/womens-basketball/coaches",
+      "team": "North Carolina",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://ncataggies.com/sports/womens-basketball/coaches",
+      "team": "North Carolina A&T",
+      "conference": "CAA",
+      "client": "HDI Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://nccueaglepride.com/sports/womens-basketball/coaches",
+      "team": "North Carolina Central",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.fightinghawks.com/sports/womens-basketball/coaches",
+      "team": "North Dakota",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobison.com/sports/womens-basketball/coaches",
+      "team": "North Dakota State",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://unfospreys.com/sports/womens-basketball/coaches",
+      "team": "North Florida",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://meangreensports.com/sports/womens-basketball/coaches",
+      "team": "North Texas",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://nuhuskies.com/sports/womens-basketball/coaches",
+      "team": "Northeastern",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://nauathletics.com/sports/womens-basketball/coaches",
+      "team": "Northern Arizona",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uncbears.com/sports/womens-basketball/coaches",
+      "team": "Northern Colorado",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.niuhuskies.com/sports/womens-basketball/coaches",
+      "team": "Northern Illinois",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://unipanthers.com/sports/womens-basketball/coaches",
+      "team": "Northern Iowa",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://nkunorse.com/sports/womens-basketball/coaches",
+      "team": "Northern Kentucky",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://nusports.com/sports/womens-basketball/coaches",
+      "team": "Northwestern",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://nsudemons.com/sports/womens-basketball/coaches",
+      "team": "Northwestern State",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://fightingirish.com/staff-directory/sports/wbball",
+      "team": "Notre Dame",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goldengrizzlies.com/sports/womens-basketball/coaches",
+      "team": "Oakland",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ohiobobcats.com/sports/wbball/coaches",
+      "team": "Ohio",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ohiostatebuckeyes.com/sports/womens-basketball/coaches",
+      "team": "Ohio State",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://soonersports.com/sports/womens-basketball/coaches",
+      "team": "Oklahoma",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://okstate.com/sports/womens-basketball/coaches",
+      "team": "Oklahoma State",
+      "conference": "Big 12",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://odusports.com/staff-directory/department/womens-basketball",
+      "team": "Old Dominion",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://olemisssports.com/sports/womens-basketball/coaches",
+      "team": "Ole Miss",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://oruathletics.com/sports/womens-basketball/coaches",
+      "team": "Oral Roberts",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goducks.com/sports/womens-basketball/coaches",
+      "team": "Oregon",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://osubeavers.com/sports/womens-basketball/coaches",
+      "team": "Oregon State",
+      "conference": "Pac-12",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://pacifictigers.com/sports/womens-basketball/coaches",
+      "team": "Pacific",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://pennathletics.com/sports/womens-basketball/coaches",
+      "team": "Penn",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gopsusports.com/staff-directory/department/womens-basketball",
+      "team": "Penn State",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://pepperdinewaves.com/sports/womens-basketball/coaches",
+      "team": "Pepperdine",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://pittsburghpanthers.com/sports/womens-basketball/coaches",
+      "team": "Pittsburgh",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://portlandpilots.com/sports/womens-basketball/coaches",
+      "team": "Portland",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goviks.com/sports/womens-basketball/coaches",
+      "team": "Portland State",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://pvpanthers.com/sports/womens-basketball/coaches",
+      "team": "Prairie View A&M",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobluehose.com/sports/womens-basketball/coaches",
+      "team": "Presbyterian",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goprincetontigers.com/sports/womens-basketball/coaches",
+      "team": "Princeton",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://friars.com/sports/womens-basketball/coaches",
+      "team": "Providence",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://purduesports.com/staff-directory/department/womens-basketball",
+      "team": "Purdue",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gomastodons.com/sports/womens-basketball/coaches",
+      "team": "Purdue Fort Wayne",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://queensathletics.com/sports/womens-basketball/coaches",
+      "team": "Queens",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobobcats.com/sports/womens-basketball/coaches",
+      "team": "Quinnipiac",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://radfordathletics.com/sports/womens-basketball/coaches",
+      "team": "Radford",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gorhody.com/sports/womens-basketball/coaches",
+      "team": "Rhode Island",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://riceowls.com/sports/womens-basketball/coaches",
+      "team": "Rice",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://richmondspiders.com/sports/womens-basketball/coaches",
+      "team": "Richmond",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gobroncs.com/sports/womens-basketball/coaches",
+      "team": "Rider",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://rmucolonials.com/sports/womens-basketball/coaches",
+      "team": "Robert Morris",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://scarletknights.com/sports/womens-basketball/coaches",
+      "team": "Rutgers",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://hornetsports.com/sports/womens-basketball/coaches",
+      "team": "Sacramento State",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://sacredheartpioneers.com/sports/womens-basketball/coaches",
+      "team": "Sacred Heart",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobonnies.com/sports/womens-basketball/coaches",
+      "team": "Saint Bonaventure",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.sfuathletics.com/sports/womens-basketball/coaches",
+      "team": "Saint Francis",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://sjuhawks.com/sports/womens-basketball/coaches",
+      "team": "Saint Joseph's",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://slubillikens.com/sports/womens-basketball/coaches",
+      "team": "Saint Louis",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.smcgaels.com/sports/womens-basketball/coaches",
+      "team": "Saint Mary's",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://saintpeterspeacocks.com/sports/womens-basketball/coaches",
+      "team": "Saint Peter's",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gobearkats.com/sports/womens-basketball/coaches",
+      "team": "Sam Houston State",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://samfordsports.com/sports/womens-basketball/coaches",
+      "team": "Samford",
+      "conference": "SoCon",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.usdtoreros.com/sports/womens-basketball/coaches",
+      "team": "San Diego",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goaztecs.com/staff-directory/department/basketball-womens-594-4095",
+      "team": "San Diego State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://usfdons.com/sports/womens-basketball/coaches",
+      "team": "San Francisco",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://sjsuspartans.com/staff-directory/department/womens-basketball",
+      "team": "San Jose State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://santaclarabroncos.com/sports/womens-basketball/coaches",
+      "team": "Santa Clara",
+      "conference": "WCC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goseattleu.com/staff-directory/department/w-basketball",
+      "team": "Seattle",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://semoredhawks.com/sports/womens-basketball/coaches",
+      "team": "SEMO",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://shupirates.com/sports/womens-basketball/coaches",
+      "team": "Seton Hall",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://sienasaints.com/sports/womens-basketball/coaches",
+      "team": "Siena",
+      "conference": "MAAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://siuecougars.com/sports/womens-basketball/coaches",
+      "team": "SIUE",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://smumustangs.com/sports/womens-basketball/coaches",
+      "team": "SMU",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://usajaguars.com/sports/womens-basketball/coaches",
+      "team": "South Alabama",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gamecocksonline.com/staff-directory/womens-basketball-803-777-0371",
+      "team": "South Carolina",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://www.scsuathletics.com/sports/womens-basketball/coaches",
+      "team": "South Carolina State",
+      "conference": "MEAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goyotes.com/sports/womens-basketball/coaches",
+      "team": "South Dakota",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gojacks.com/sports/womens-basketball/coaches",
+      "team": "South Dakota State",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gousfbulls.com/sports/womens-basketball/coaches",
+      "team": "South Florida",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://lionsports.net/sports/womens-basketball/coaches",
+      "team": "Southeastern LA",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gojagsports.com/sports/womens-basketball/coaches",
+      "team": "Southern",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://siusalukis.com/sports/womens-basketball/coaches",
+      "team": "Southern Illinois",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://usiscreamingeagles.com/sports/womens-basketball/coaches",
+      "team": "Southern Indiana",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://southernmiss.com/sports/womens-basketball/coaches",
+      "team": "Southern Miss",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://suutbirds.com/sports/womens-basketball/coaches",
+      "team": "Southern Utah",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://redstormsports.com/sports/womens-basketball/coaches",
+      "team": "St. John's",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://tommiesports.com/sports/wbball/coaches",
+      "team": "St. Thomas",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gostanford.com/staff-directory/department/womens-basketball",
+      "team": "Stanford",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://sfajacks.com/sports/womens-basketball/coaches",
+      "team": "Stephen F. Austin",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gohatters.com/sports/womens-basketball/coaches/2024-25#TODO",
+      "team": "Stetson",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://stonehillskyhawks.com/sports/womens-basketball/coaches",
+      "team": "Stonehill",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://stonybrookathletics.com/sports/womens-basketball/coaches",
+      "team": "Stony Brook",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://cuse.com/sports/womens-basketball/coaches",
+      "team": "Syracuse",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://tarletonsports.com/sports/womens-basketball/coaches",
+      "team": "Tarleton Statte",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gofrogs.com/sports/womens-basketball/coaches",
+      "team": "TCU",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://owlsports.com/sports/womens-basketball/coaches",
+      "team": "Temple",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://utsports.com/sports/womens-basketball/coaches",
+      "team": "Tennessee",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://tsutigers.com/sports/womens-basketball/coaches",
+      "team": "Tennessee State",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.ttusports.com/information/directory/index",
+      "team": "Tennessee Tech",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://texaslonghorns.com/sports/womens-basketball/coaches",
+      "team": "Texas",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://12thman.com/sports/womens-basketball/coaches",
+      "team": "Texas A&M",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://goislanders.com/sports/womens-basketball/coaches",
+      "team": "Texas A&M CC",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://lionathletics.com/sports/womens-basketball/coaches",
+      "team": "Texas A&M Commerce",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://tsusports.com/sports/womens-basketball/coaches",
+      "team": "Texas Southern",
+      "conference": "SWAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://txst.com/sports/womens-basketball/coaches",
+      "team": "Texas State",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://texastech.com/sports/womens-basketball/coaches",
+      "team": "Texas Tech",
+      "conference": "Big 12",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://utrockets.com/sports/womens-basketball/coaches",
+      "team": "Toledo",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://towsontigers.com/sports/womens-basketball/coaches",
+      "team": "Towson",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.troytrojans.com/sports/womens-basketball/coaches",
+      "team": "Troy",
+      "conference": "Sun Belt",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.tulanegreenwave.com/sports/womens-basketball/coaches",
+      "team": "Tulane",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://tulsahurricane.com/sports/womens-basketball/coaches",
+      "team": "Tulsa",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://uabsports.com/sports/womens-basketball/coaches",
+      "team": "UAB",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://ucdavisaggies.com/sports/womens-basketball/coaches",
+      "team": "UC Davis",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ucirvinesports.com/sports/womens-basketball/coaches",
+      "team": "UC Irvine",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gohighlanders.com/sports/womens-basketball/coaches",
+      "team": "UC Riverside",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ucsdtritons.com/sports/womens-basketball/coaches",
+      "team": "UC San Diego",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ucsbgauchos.com/sports/womens-basketball/coaches",
+      "team": "UC Santa Barbara",
+      "conference": "Big West",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://ucfknights.com/staff-directory/department/womens-basketball",
+      "team": "UCF",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://uclabruins.com/sports/womens-basketball/coaches",
+      "team": "UCLA",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://uconnhuskies.com/sports/womens-basketball/coaches",
+      "team": "UConn",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://uicflames.com/sports/womens-basketball/coaches",
+      "team": "UIC",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goriverhawks.com/sports/womens-basketball/coaches",
+      "team": "UMass Lowell",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://umbcretrievers.com/sports/womens-basketball/coaches",
+      "team": "UMBC",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://kcroos.com/sports/womens-basketball/coaches",
+      "team": "UMKC",
+      "conference": "Summit League",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uncabulldogs.com/sports/womens-basketball/coaches",
+      "team": "UNC Asheville",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uncwsports.com/sports/womens-basketball/coaches",
+      "team": "UNC Wilmington",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uncgspartans.com/sports/womens-basketball/coaches",
+      "team": "UNCG",
+      "conference": "SoCon",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://unlvrebels.com/sports/womens-basketball/coaches",
+      "team": "UNLV",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://usctrojans.com/sports/womens-basketball/coaches",
+      "team": "USC",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://upstatespartans.com/sports/womens-basketball/coaches",
+      "team": "USC Upstate",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://utamavs.com/sports/womens-basketball/coaches",
+      "team": "UT Arlington",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://utmsports.com/sports/womens-basketball/coaches",
+      "team": "UT-Martin",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://utahutes.com/sports/womens-basketball/coaches",
+      "team": "Utah",
+      "conference": "Big 12",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://utahstateaggies.com/sports/womens-basketball/coaches",
+      "team": "Utah State",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://utahtechtrailblazers.com/sports/womens-basketball/coaches",
+      "team": "Utah Tech",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://gouvu.com/sports/womens-basketball/coaches",
+      "team": "Utah Valley",
+      "conference": "WAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://utepminers.com/sports/womens-basketball/coaches",
+      "team": "UTEP",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goutrgv.com/sports/womens-basketball/coaches",
+      "team": "UTRGV",
+      "conference": "Southland",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goutsa.com/staff-directory/department/womens-basketball",
+      "team": "UTSA",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://valpoathletics.com/sports/womens-basketball/coaches",
+      "team": "Valparaiso",
+      "conference": "MVC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://vucommodores.com/staff-directory/womens-basketball",
+      "team": "Vanderbilt",
+      "conference": "SEC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://vcuathletics.com/sports/womens-basketball/coaches",
+      "team": "VCU",
+      "conference": "A10",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://uvmathletics.com/sports/womens-basketball/coaches",
+      "team": "Vermont",
+      "conference": "America East",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://villanova.com/sports/womens-basketball/coaches",
+      "team": "Villanova",
+      "conference": "Big East",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://virginiasports.com/staff-directory/basketball-womens-john-paul-jones-arena-po-box-400827-charlottesville-va-22904-4827-phone-434-982-5800-fax-434-982-5822",
+      "team": "Virginia",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://hokiesports.com/staff-directory/department/basketball-womens",
+      "team": "Virginia Tech",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://wagnerathletics.com/sports/womens-basketball/coaches",
+      "team": "Wagner",
+      "conference": "NEC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://godeacs.com/sports/womens-basketball/coaches",
+      "team": "Wake Forest",
+      "conference": "ACC",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://gohuskies.com/sports/womens-basketball/coaches",
+      "team": "Washington",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://wsucougars.com/sports/womens-basketball/coaches",
+      "team": "Washington State",
+      "conference": "Pac-12",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://weberstatesports.com/sports/womens-basketball/coaches",
+      "team": "Weber State",
+      "conference": "Big Sky",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uwgathletics.com/sports/womens-basketball/coaches",
+      "team": "West Georgia",
+      "conference": "ASun",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://wvusports.com/sports/womens-basketball/coaches",
+      "team": "West Virginia",
+      "conference": "Big 12",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://catamountsports.com/sports/womens-basketball/coaches",
+      "team": "Western Carolina",
+      "conference": "SoCon",
+      "client": "HDI Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goleathernecks.com/sports/womens-basketball/coaches",
+      "team": "Western Illinois",
+      "conference": "OVC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://www.wkusports.com/sports/womens-basketball/coaches",
+      "team": "Western Kentucky",
+      "conference": "CUSA",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://wmubroncos.com/sports/womens-basketball/coaches",
+      "team": "Western Michigan",
+      "conference": "MAC",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://goshockers.com/sports/womens-basketball/coaches",
+      "team": "Wichita State",
+      "conference": "AAC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://www.tribeathletics.com/sports/womens-basketball/coaches",
+      "team": "William & Mary",
+      "conference": "CAA",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://winthropeagles.com/sports/womens-basketball/coaches",
+      "team": "Winthrop",
+      "conference": "Big South",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://uwbadgers.com/sports/womens-basketball/coaches",
+      "team": "Wisconsin",
+      "conference": "Big 10",
+      "client": "Non-Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://woffordterriers.com/sports/womens-basketball/coaches",
+      "team": "Wofford",
+      "conference": "SoCon",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://wsuraiders.com/sports/womens-basketball/coaches",
+      "team": "Wright State",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    },
+    {
+      "url": "https://gowyo.com/sports/womens-basketball/coaches",
+      "team": "Wyoming",
+      "conference": "MWC",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://goxavier.com/sports/womens-basketball/coaches",
+      "team": "Xavier",
+      "conference": "Big East",
+      "client": "HDI Client",
+      "level": "HM"
+    },
+    {
+      "url": "https://yalebulldogs.com/sports/womens-basketball/coaches",
+      "team": "Yale",
+      "conference": "Ivy League",
+      "client": "Non-Client",
+      "level": "MM"
+    },
+    {
+      "url": "https://ysusports.com/sports/womens-basketball/coaches",
+      "team": "Youngstown State",
+      "conference": "Horizon",
+      "client": "Non-Client",
+      "level": "LM"
+    }
+  ],
+  "conference": []
+}

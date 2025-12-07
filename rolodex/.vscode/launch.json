@@ -1,0 +1,44 @@
+{
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "MBB",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "rolodex.py",
+            "args": ["mbb", "-s", "2025-26 MBB"]
+        },
+        {
+            "name": "WBB",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "rolodex.py",
+            "args": ["wbb", "-s", "2025-26 WBB"]
+        },
+        {
+            "name": "MBB Import",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "rolodex_import.py",
+            "args": ["2024-25 MBB Generated", "2024-25 MBB", "2023-24 MBB", "2022-23 MBB", "-s", "2025-26 MBB"]
+        },
+        {
+            "name": "WBB Import",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "rolodex_import.py",
+            "args": ["2024-25 WBB Generated", "2024-25 WBB", "2023-24 WBB", "2022-23 WBB", "-s", "2025-26 WBB"]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "All",
+            "configurations": ["MBB", "WBB", "MBB Import", "WBB Import"]
+        }
+    ]
+}

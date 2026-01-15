@@ -48,48 +48,54 @@ REGEXES = {
 }
 LOCATORS = {
     "player": [
+        (By.CSS_SELECTOR, "[itemprop='athlete']"),
+        (By.CSS_SELECTOR, "ul.roster-players-list > li"),
         (By.CSS_SELECTOR, "li.sidearm-roster-player"),
+        (By.CSS_SELECTOR, "li.sidearm-roster-list-item"),
+        (By.CSS_SELECTOR, "div#players .player"),
         (By.CSS_SELECTOR, "div#players .roster__item"),
         (By.CSS_SELECTOR, "div#listPanel > .s-person-card"),
-        (By.CSS_SELECTOR, "[itemprop='athlete']"),
-        (By.CSS_SELECTOR, "li.sidearm-roster-list-item"),
         (By.CSS_SELECTOR, "ul#sidearm-m-roster > li"),
         (By.CSS_SELECTOR, "ul#sidearm-f-roster > li"),
         (By.CSS_SELECTOR, "div.roster-players-cards > .roster-card"),
         (By.CSS_SELECTOR, "div.roster-players-cards > .roster-card-item"),
         (By.CSS_SELECTOR, "div.player-card-wrapper"),
-        (By.CSS_SELECTOR, "ul.roster-players-list > li"),
-        (By.CSS_SELECTOR, "div#players .player"),
-        (By.CSS_SELECTOR, "div.roster__list_item")
+        (By.CSS_SELECTOR, "div.roster__list_item"),
+        (By.CSS_SELECTOR, "div.featured__list:not(.staff) .player"),
+        (By.CSS_SELECTOR, "div.roster-card-item:not(.roster-staff-members-card-item)"),
     ],
     "player_number": [
-        (By.CSS_SELECTOR, ".sidearm-roster-player-jersey-number"),
         (By.CSS_SELECTOR, ".number"),
         (By.CSS_SELECTOR, ".s-stamp__text"),
+        (By.CSS_SELECTOR, ".sidearm-roster-list-item-number"),
         (By.CSS_SELECTOR, ".sidearm-roster-list-item-photo-number"),
         (By.CSS_SELECTOR, ".sidearm-roster-player-jersey"),
-        (By.CSS_SELECTOR, ".roster-card__jersey-number"),
+        (By.CSS_SELECTOR, ".sidearm-roster-player-jersey-number"),
         (By.CSS_SELECTOR, ".roster-item__number"),
+        (By.CSS_SELECTOR, ".roster-card__jersey-number"),
         (By.CSS_SELECTOR, ".roster-list-item__number"),
+        (By.CSS_SELECTOR, ".roster-card-item__number"),
         (By.CSS_SELECTOR, ".roster-list-item__jersey-number"),
         (By.CSS_SELECTOR, ".roster-card-item__jersey-number"),
+        (By.CSS_SELECTOR, ".roster-list_item_number"),
         (By.CSS_SELECTOR, ".thumb span"),
-        (By.CSS_SELECTOR, ".sidearm-roster-list-item-number")
     ],
     "player_image": [
+        (By.CSS_SELECTOR, ".image img"),
+        (By.CSS_SELECTOR, ".s-person-thumbnail img"),
+        (By.CSS_SELECTOR, ".sidearm-roster-list-item-photo img"),
         (By.CSS_SELECTOR, ".sidearm-roster-player-image img"),
         (By.CSS_SELECTOR, ".roster__image img"),
-        (By.CSS_SELECTOR, ".s-person-thumbnail img"),
-        (By.CSS_SELECTOR, ".image img"),
-        (By.CSS_SELECTOR, ".sidearm-roster-list-item-photo img"),
-        (By.CSS_SELECTOR, "div.sidearm-roster-player-image"),
-        (By.CSS_SELECTOR, "img.roster-card__image"),
-        (By.CSS_SELECTOR, "[itemprop='image'] ~ a img"),
         (By.CSS_SELECTOR, ".player-image img"),
+        (By.CSS_SELECTOR, "div.sidearm-roster-player-image"),
+        (By.CSS_SELECTOR, "div.thumb-image"),
+        (By.CSS_SELECTOR, "img.roster-card__image"),
         (By.CSS_SELECTOR, "img.roster-list-item__image"),
         (By.CSS_SELECTOR, "img.roster-card-item__image"),
+        (By.CSS_SELECTOR, "img.sidearm-roster-list-item-photo-img"),
+        (By.CSS_SELECTOR, "[itemprop='image'] ~ a img"),
+        (By.CSS_SELECTOR, ".player__thumb img"),
         (By.CSS_SELECTOR, ".thumb img"),
-        (By.CSS_SELECTOR, "img.sidearm-roster-list-item-photo-img")
     ]
 }
 TOP_EXTEND_RATIO = .7
@@ -169,8 +175,9 @@ def main() -> None:
     def normalize_number(el: WebElement) -> str:
         if not el:
             return None
-        elif text := el.get_attribute("innerText"):
-            return REGEXES["number"].search(text).group()
+        # TODO: handle numbers with letters
+        elif match := REGEXES["number"].search(el.get_attribute("innerText")):
+            return match.group()
         else:
             return None
     
@@ -238,7 +245,8 @@ def main() -> None:
             }
             for player in players
         ]
-        # TODO: vanderbilt, georgia tech, sam houston, niu, notre dame
+        # TODO: vanderbilt, georgia tech, sam houston, niu, notre dame, rhode island
+        # TODO: tulsa: libpng warning: iCCP: known incorrect sRGB profile
         player_data[0]["number"] = player_data[0]["number"] or "0"
 
     # files = drive.files().list(

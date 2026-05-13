@@ -1,0 +1,5 @@
+google-api-python-client
+mediapipe
+numpy
+opencv-python
+playwright

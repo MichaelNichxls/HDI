@@ -1,0 +1,13 @@
+{
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "tests",
+        "-k=not (test_locators and -URLW)",
+        "-n=4",
+        "--dist=worksteal",
+        "--retries=2",
+        "--tb=short",
+        // "--headed"
+    ]
+}

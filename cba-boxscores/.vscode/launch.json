@@ -1,0 +1,48 @@
+{
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Boxscores",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "boxscores.py",
+            "args": [
+                "${input:conference}",
+                "-r",
+                "${input:battingRange}",
+                "${input:pitchingRange}",
+                "--clear"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "conference",
+            "description": "conference to scrape college baseball boxscores from",
+            "options": [
+                "sec",
+                "acc"
+            ]
+        },
+        {
+            "type": "pickString",
+            "id": "battingRange",
+            "description": "range within google spreadsheet to write the batting data to",
+            "options": [
+                "SEC Batting (Generated)!A2:H",
+                "ACC Batting (Generated)!A2:H"
+            ]
+        },
+        {
+            "type": "pickString",
+            "id": "pitchingRange",
+            "description": "range within google spreadsheet to write the pitching data to",
+            "options": [
+                "SEC Pitching (Generated)!A2:J",
+                "ACC Pitching (Generated)!A2:J"
+            ]
+        },
+    ]
+}

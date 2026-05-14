@@ -10,7 +10,7 @@ from headshots import SEASON
 def test_url_is_valid(page: Page, genius: dict[str, str], species: str):
     if not genius[species]:
         pytest.skip()
-    
+
     url = genius[species].format(**SEASON)
     page.goto(url, wait_until="domcontentloaded")
     expect(page).to_have_url(re.compile(rf"^{re.escape(url)}/?$"))

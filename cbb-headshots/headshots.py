@@ -49,12 +49,8 @@ LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
     .or_(locator.locator(".roster table tbody tr th.name > a"))
     .or_(locator.locator(".roster-data table tbody tr th > a"))
     .or_(locator.locator(".roster-data table tbody tr th[data-label*='Name'] .player-name-social-row a:nth-of-type(1)"))
-    .or_(
-        locator.locator(
-            "[class*='common-team-section_container__']:not(:has(h2[class*='common-team-section_title__']:has-text('Coaches'))) a[class*='game-roster-group-player_playerCard__']"
-        )
-    )
-)
+    .or_(locator.locator("[class*='common-team-section_container__']:not(:has(h2[class*='common-team-section_title__']:has-text('Coaches'))) a[class*='game-roster-group-player_playerCard__']"))  # noqa: E501
+)  # fmt: skip
 POPUP_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
     locator.locator("#iubenda-cs-banner")
     .or_(locator.locator("#gdpr-compliance"))

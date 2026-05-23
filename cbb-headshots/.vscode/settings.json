@@ -1,4 +1,6 @@
 {
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
     "cSpell.ignorePaths": [
         "package-lock.json",
         "node_modules",

@@ -12,6 +12,7 @@
         "genius.csv"
     ],
     "cSpell.words": [
+        "addopts",
         "BGRA",
         "doseq",
         "euroleague",
@@ -31,8 +32,10 @@
         "onetrust",
         "pytest",
         "SRGB",
+        "testpaths",
         "tflite",
         "URLW",
+        "worksteal",
         "xdist"
     ]
 }

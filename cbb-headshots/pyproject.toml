@@ -1,0 +1,38 @@
+[project]
+name = "cbb-headshots"
+version = "2026.5.14"
+dependencies = [
+    "google-api-python-client",
+    "mediapipe",
+    "numpy",
+    "opencv-python",
+    "playwright",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy",
+    "pytest",
+    "pytest-playwright",
+    "pytest-retry",
+    "pytest-xdist",
+]
+
+[tool.pytest]
+testpaths = ["tests"]
+addopts = [
+    "-k=not (test_locators and -URLW)",
+    "-n=4",
+    "--dist=worksteal",
+    "--retries=2",
+    "--tb=short",
+    # "--headed"
+]
+tmp_path_retention_policy = "none"
+
+[tool.ruff]
+line-length = 180
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B"]
+ignore = ["E731"]

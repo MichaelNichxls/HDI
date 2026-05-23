@@ -1,6 +1,5 @@
 google-api-python-client
-google-api-python-client-stubs
 mediapipe
 numpy
 opencv-python
-selenium
+playwright

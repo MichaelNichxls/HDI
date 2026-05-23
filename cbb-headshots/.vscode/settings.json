@@ -1,0 +1,35 @@
+{
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/{info,lfs,logs,refs,objects}/**",
+        ".git/{index,*refs,*HEAD}",
+        ".vscode",
+        ".vscode-insiders",
+        "genius.csv"
+    ],
+    "cSpell.words": [
+        "BGRA",
+        "doseq",
+        "euroleague",
+        "frombuffer",
+        "googleapiclient",
+        "HDIW",
+        "headshots",
+        "imdecode",
+        "imencode",
+        "IMREAD",
+        "itemprop",
+        "iubenda",
+        "mediapipe",
+        "mypy",
+        "networkidle",
+        "numpy",
+        "onetrust",
+        "pytest",
+        "tflite",
+        "URLW",
+        "xdist"
+    ]
+}

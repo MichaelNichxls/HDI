@@ -30,6 +30,7 @@
         "numpy",
         "onetrust",
         "pytest",
+        "SRGB",
         "tflite",
         "URLW",
         "xdist"

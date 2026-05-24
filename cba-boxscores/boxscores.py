@@ -134,43 +134,27 @@ def get_boxscore_metadata(context: BrowserContext, url: str) -> Generator[dict[s
             try:
                 page.locator(".schedule-list__load_more__button").click(timeout=5_000)
             except TimeoutError:
-                pass
+                break
 
-    #     for game in wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "table.schedule-event-table__table tbody > tr"))):
-    #         matchup = (
-    #             normalize(game.find_element(By.CSS_SELECTOR, "td.schedule-event-cell--firstTeam .schedule-event-opponent__name").text),
-    #             normalize(game.find_element(By.CSS_SELECTOR, "td.schedule-event-cell--secondTeam .schedule-event-opponent__name").text),
-    #         )
-    #         date = datetime.strptime(f"{game.find_element(By.CSS_SELECTOR, 'td.schedule-event-cell--results_time span:not([class])').text}, {NOW.year}", "%a., %b. %d, %Y")
-    #         url = boxscore[0].get_attribute("href") if (boxscore := game.find_elements(By.PARTIAL_LINK_TEXT, "Stats")) else None
-    #         series = ((date - SERIES[conference]).days + 1) // 7 + 1
-    #         yield {
-    #             "conference": conference,
-    #             "matchup": matchup,
-    #             "date": date,
-    #             "url": url,
-    #             "series": series,
-    #         }
-    # elif conference == "acc":
-    #     LOGGER.info("goto %s", "https://theacc.com/calendar.aspx?path=baseball")
-    #     driver.get("https://theacc.com/calendar.aspx?path=baseball")
+        for game in GAME_LOCATOR(page).all():
+            matchup = (
+                normalize(MATCHUP_FIRST_LOCATOR(game).inner_text()),
+                normalize(MATCHUP_SECOND_LOCATOR(game).inner_text()),
+            )
+            try:
+                date = datetime.strptime(f"{DATE_LOCATOR(game).inner_text(), {NOW.year}}", "%a., %b. %d, %Y")
+            except ValueError:
+                date = datetime.strptime(DATE_LOCATOR(game).inner_text(), "%A %m/%d/%Y")
 
-    #     for calendar in wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "table.sidearm-calendar-table"))):
-    #         for game in calendar.find_elements(By.CSS_SELECTOR, "tbody > tr"):
-    #             matchup = (
-    #                 normalize(game.find_element(By.CSS_SELECTOR, "td.sidearm-team-away .sidearm-calendar-list-group-list-game-team-title").text),
-    #                 normalize(game.find_element(By.CSS_SELECTOR, "td.sidearm-team-home .sidearm-calendar-list-group-list-game-team-title").text),
-    #             )
-    #             date = datetime.strptime(calendar.find_element(By.CSS_SELECTOR, "caption span.sidearm-calendar-list-group-heading-date:not([aria-hidden])").text, "%A, %B %d, %Y")
-    #             url = boxscore[0].get_attribute("href") if (boxscore := game.find_elements(By.LINK_TEXT, "Box Score")) else None
-    #             series = ((date - SERIES[conference]).days + 1) // 7 + 1
-    #             yield {
-    #                 "conference": conference,
-    #                 "matchup": matchup,
-    #                 "date": date,
-    #                 "url": url,
-    #                 "series": series,
-    #             }
+            url = u.evaluate("el => el.href") if (u := URL_LOCATOR(game)).is_visible() else None
+            # series = ((date - SERIES[conference]).days + 1) // 7 + 1
+            yield {
+                # "conference": conference,
+                "matchup": matchup,
+                "date": date,
+                "url": url,
+                # "series": series,
+            }
 
 
 def get_boxscores(context: BrowserContext, metadata: dict[str, Any]) -> Generator[dict[str, str], None, None]:

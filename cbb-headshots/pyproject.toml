@@ -1,6 +1,6 @@
 [project]
 name = "cbb-headshots"
-version = "2026.5.14"
+version = "2026.5.24"
 dependencies = [
     "google-api-python-client",
     "mediapipe",

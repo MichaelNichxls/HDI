@@ -103,70 +103,121 @@ PARENS_PATTERN = re.compile(r"\([^)]*\)")
 NUMBER_PATTERN = re.compile(r"#?\d{1,2}")
 LAST_FIRST_PATTERN = re.compile(r"(\b.*),\s*(.*\b)")
 
-GAME_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: locator.locator("table.schedule-event-table__table tbody > tr").or_(
+type PageOrLocatorToLocator = Callable[[Page | Locator], Locator]
+
+META_GAME_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("table.schedule-event-table__table tbody > tr").or_(
     locator.locator("table.sidearm-calendar-table tbody > tr")
 )
-MATCHUP_FIRST_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: locator.locator("td.schedule-event-cell--firstTeam .schedule-event-opponent__name").or_(
+META_MATCHUP_FIRST_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("td.schedule-event-cell--firstTeam .schedule-event-opponent__name").or_(
     locator.locator("td.sidearm-team-away .sidearm-calendar-list-group-list-game-team-title")
 )
-MATCHUP_SECOND_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: locator.locator("td.schedule-event-cell--secondTeam .schedule-event-opponent__name").or_(
+META_MATCHUP_SECOND_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("td.schedule-event-cell--secondTeam .schedule-event-opponent__name").or_(
     locator.locator("td.sidearm-team-home .sidearm-calendar-list-group-list-game-team-title")
 )
-DATE_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: locator.locator("td.schedule-event-cell--results_time span:not([class])").or_(
+META_DATE_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("td.schedule-event-cell--results_time span:not([class])").or_(
     locator.locator("td span[data-bind*='date']")
 )
-URL_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: locator.locator("a:has-text('Stats')").or_(locator.locator("a:has-text('Box Score')"))
+META_URL_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("a:has-text('Stats')").or_(locator.locator("a:has-text('Box Score')"))
+GAME_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("h2.roster-title__header:has(.roster-title__content)").or_(
+    locator.locator("header.sidearm-box-score-header h3")
+)
+DATE_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("time.match-stats-header__match-details-item-value").or_(locator.locator("dt:has-text('Date') + dd"))
+TEAM_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("xpath=thead[contains(@class,'advanced-table__thead')]/tr[1]/th[last()]").or_(
+    locator.locator(f"xpath=self::table[@id='{locator.get_attribute('id')}']/caption")
+)
+PLAYER_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("xpath=tbody[contains(@class,'advanced-table__tbody')]/tr[normalize-space(td[1])!='P']").or_(
+    locator.locator(f"xpath=self::table[@id='{locator.get_attribute('id')}']/tbody/tr")
+)
+NAME_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator(
+    "xpath=td[count(ancestor::table//th[normalize-space()='Player']/preceding-sibling::th)+1][contains(@class,'advanced-table__cell')]"
+).or_(locator.locator("xpath=th[ancestor::tbody/preceding-sibling::thead//th[contains(@aria-controls,'DataTables_Table_')]]"))
+BATTING_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("//*[normalize-space()='Hitting']/following-sibling::*[1]//table").or_(
+    locator.locator("//h3[normalize-space()='Batting']/following-sibling::*//table")
+)
+PITCHING_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator("//*[normalize-space()='Pitching']/following-sibling::*[1]//table").or_(
+    locator.locator("//h3[normalize-space()='Pitching']/following::table[position()<=2]")
+)
 
 
-def normalize(str_: str) -> str:
+def normalize(locator: Locator) -> str:
+    str_ = locator.inner_text()
     str_ = PARENS_PATTERN.sub("", str_)
     str_ = NUMBER_PATTERN.sub("", str_)
     str_ = LAST_FIRST_PATTERN.sub(r"\2 \1", str_)
     return str_.replace("\n", " ").strip().title()
 
 
-def get_boxscore_metadata(context: BrowserContext, url: str) -> Generator[dict[str, Any], None, None]:
+# def get_boxscore_series(conference, metadata: dict[str, Any]) -> dict[str, Any]:
+#     series = ((date - SERIES[conference]).days + 1) // 7 + 1
+
+
+def get_boxscore_metadata(context: BrowserContext, url_: str) -> Generator[dict[str, Any], None, None]:
     with context.new_page() as page:
         page.set_default_timeout(10_000)
-        page.goto(url)
-        # TODO: is there any other way to do this
+        page.goto(url_)
         while True:
             try:
                 page.locator(".schedule-list__load_more__button").click(timeout=5_000)
             except TimeoutError:
                 break
 
-        for game in GAME_LOCATOR(page).all():
+        for game in META_GAME_LOCATOR(page).all():
             matchup = (
-                normalize(MATCHUP_FIRST_LOCATOR(game).inner_text()),
-                normalize(MATCHUP_SECOND_LOCATOR(game).inner_text()),
+                normalize(META_MATCHUP_FIRST_LOCATOR(game)),
+                normalize(META_MATCHUP_SECOND_LOCATOR(game)),
             )
             try:
-                date = datetime.strptime(f"{DATE_LOCATOR(game).inner_text(), {NOW.year}}", "%a., %b. %d, %Y")
+                date = datetime.strptime(f"{META_DATE_LOCATOR(game).inner_text()}, {NOW.year}", "%a., %b. %d, %Y")
             except ValueError:
-                date = datetime.strptime(DATE_LOCATOR(game).inner_text(), "%A %m/%d/%Y")
+                date = datetime.strptime(META_DATE_LOCATOR(game).inner_text(), "%A %m/%d/%Y")
 
-            url = u.evaluate("el => el.href") if (u := URL_LOCATOR(game)).is_visible() else None
-            # series = ((date - SERIES[conference]).days + 1) // 7 + 1
+            url = url_loc.evaluate("el => el.href") if (url_loc := META_URL_LOCATOR(game)).is_visible() else None
             yield {
-                # "conference": conference,
                 "matchup": matchup,
                 "date": date,
                 "url": url,
-                # "series": series,
             }
 
 
-def get_boxscores(context: BrowserContext, metadata: dict[str, Any]) -> Generator[dict[str, str], None, None]:
-    pass
+# series = ((date - SERIES[conference]).days + 1) // 7 + 1
+# metadata: dict[str, Any]
+def get_boxscores(context: BrowserContext, url: str) -> Generator[dict[str, str], None, None]:
+    with context.new_page() as page:
+        page.set_default_timeout(10_000)
+        page.goto(url)
+
+        game = normalize(GAME_LOCATOR(page))
+        date = datetime.strptime(DATE_LOCATOR(page).inner_text(), "%m/%d/%Y")
+        for batting in BATTING_LOCATOR(page).all():
+            team = normalize(TEAM_LOCATOR(batting))
+            for player in PLAYER_LOCATOR(batting).all():
+                data = player.locator("td").all()
+                name = normalize(NAME_LOCATOR(player))
+                position = data[0].inner_text()
+                yield {
+                    "game": game,
+                    "date": date,
+                    "team": team,
+                    "player": name,
+                    "position": position,
+                    # FIXME
+                    **{s: data[i].inner_text() for i, s in enumerate(STATS["batting"], 2)},
+                }
+        for pitching in PITCHING_LOCATOR(page).all():
+            team = normalize(TEAM_LOCATOR(pitching))
+            for player in PLAYER_LOCATOR(pitching).all():
+                data = player.locator("td").all()
+                name = normalize(NAME_LOCATOR(player))
+                yield {
+                    "game": game,
+                    "date": date,
+                    "team": team,
+                    "player": name,
+                    "position": "P",
+                    **{s: data[i].inner_text() for i, s in enumerate(STATS["pitching"], 1)},
+                }
 
 
-#     wait = WebDriverWait(driver, 5)
-
-#     with temp_tab(driver, metadata["url"]):
-#         LOGGER.info("goto %s", metadata["url"])
-
-#         if metadata["conference"] == "sec":
 #             wait.until(EC.frame_to_be_available_and_switch_to_it((By.CLASS_NAME, "iframe-container__iframe")))
 #             wait.until(EC.frame_to_be_available_and_switch_to_it((By.ID, "boxscore")))
 
@@ -255,68 +306,73 @@ def main() -> None:
 
     with (
         sync_playwright() as p,
-        p.chromium.launch(headless=False) as browser,
+        p.chromium.launch() as browser,
         browser.new_context(viewport={"width": 1920, "height": 1080}) as context,
     ):
-        for series, metadata_by_series in groupby(get_boxscore_metadata(context, URLS[args.conference]), key=lambda m: m["series"]):
-            if series not in range(1, 11):
-                continue
+        [
+            *get_boxscores(
+                context,
+                "https://theacc.com/boxscore.aspx?id=7ltyipP022aUJKmSgYVs3wXi7up73ghniwD5ElWyd07J7BNseBaMQePf0fY%2f3yUPZA5IMqdIE5VmHRIZ6WJS%2bkyPpdO7TG99p99nvkXg7X%2fJJBuClmPC0Wa46u%2f1jvqlqy2AB%2bcUj9MqBMw1weyv5FyxROrMcI%2fPV2Qw7YKgTzE%3d&path=baseball",
+            )
+        ]
+        # for series, metadata_by_series in groupby(get_boxscore_metadata(context, URLS[args.conference]), key=lambda m: m["series"]):
+        #     if series not in range(1, 11):
+        #         continue
 
-            metadata_by_series = [
-                m for m in metadata_by_series if m["matchup"][0] in TEAMS[args.conference] and m["matchup"][1] in TEAMS[args.conference] and m["date"] <= NOW and m["url"]
-            ]
-            assert metadata_by_series
-            metadata_by_series.sort(key=lambda m: (m["matchup"], m["date"]))
-            for _, metadata_by_matchup in groupby(metadata_by_series, key=lambda m: m["matchup"]):
-                for i, m in enumerate(metadata_by_matchup, 1):
-                    m["game"] = i
+        #     metadata_by_series = [
+        #         m for m in metadata_by_series if m["matchup"][0] in TEAMS[args.conference] and m["matchup"][1] in TEAMS[args.conference] and m["date"] <= NOW and m["url"]
+        #     ]
+        #     assert metadata_by_series
+        #     metadata_by_series.sort(key=lambda m: (m["matchup"], m["date"]))
+        #     for _, metadata_by_matchup in groupby(metadata_by_series, key=lambda m: m["matchup"]):
+        #         for i, m in enumerate(metadata_by_matchup, 1):
+        #             m["game"] = i
 
-            for metadata in metadata_by_series:
-                break  # DEBUG
-                for batter, boxscore_by_position in groupby(get_boxscores(context, metadata), key=lambda b: b["position"] != "P"):
-                    # TODO: simplify
-                    if batter:
-                        body = {
-                            "values": [
-                                [
-                                    f"""=HYPERLINK("{metadata["url"]}", "{boxscore["game"]}")""",
-                                    *[*boxscore.values()][1:4],
-                                    f"{boxscore['player']}{metadata['series']}{metadata['game']}",
-                                    boxscore["ab"],
-                                    *[*metadata.values()][4:6],
-                                ]
-                                for boxscore in boxscore_by_position
-                            ]
-                        }
-                        response = (
-                            sheets.spreadsheets()
-                            .values()
-                            .append(spreadsheetId=args.id, range=args.ranges[0], valueInputOption="USER_ENTERED", insertDataOption="OVERWRITE", body=body)
-                            .execute()
-                        )
-                        LOGGER.info("updated %i rows in %s", response["updates"]["updatedRows"], args.ranges[0])
-                    else:
-                        body = {
-                            "values": [
-                                [
-                                    f"""=HYPERLINK("{metadata["url"]}", "{boxscore["game"]}")""",
-                                    *[*boxscore.values()][1:4],
-                                    f"{boxscore['player']}{metadata['series']}{metadata['game']}",
-                                    boxscore["ip"],
-                                    boxscore["bf"],
-                                    boxscore["np"],
-                                    *[*metadata.values()][4:6],
-                                ]
-                                for boxscore in boxscore_by_position
-                            ]
-                        }
-                        response = (
-                            sheets.spreadsheets()
-                            .values()
-                            .append(spreadsheetId=args.id, range=args.ranges[1], valueInputOption="USER_ENTERED", insertDataOption="OVERWRITE", body=body)
-                            .execute()
-                        )
-                        LOGGER.info("updated %i rows in %s", response["updates"]["updatedRows"], args.ranges[1])
+        #     for metadata in metadata_by_series:
+        #         for batter, boxscore_by_position in groupby(get_boxscores(context, metadata), key=lambda b: b["position"] != "P"):
+        #             # TODO: simplify
+        #             if batter:
+        #                 body = {
+        #                     "values": [
+        #                         [
+        #                             f"""=HYPERLINK("{metadata["url"]}", "{boxscore["game"]}")""",
+        #                             *[*boxscore.values()][1:4],
+        #                             f"{boxscore['player']}{metadata['series']}{metadata['game']}",
+        #                             boxscore["ab"],
+        #                             *[*metadata.values()][4:6],
+        #                         ]
+        #                         for boxscore in boxscore_by_position
+        #                     ]
+        #                 }
+        #                 response = (
+        #                     sheets.spreadsheets()
+        #                     .values()
+        #                     .append(spreadsheetId=args.id, range=args.ranges[0], valueInputOption="USER_ENTERED", insertDataOption="OVERWRITE", body=body)
+        #                     .execute()
+        #                 )
+        #                 LOGGER.info("updated %i rows in %s", response["updates"]["updatedRows"], args.ranges[0])
+        #             else:
+        #                 body = {
+        #                     "values": [
+        #                         [
+        #                             f"""=HYPERLINK("{metadata["url"]}", "{boxscore["game"]}")""",
+        #                             *[*boxscore.values()][1:4],
+        #                             f"{boxscore['player']}{metadata['series']}{metadata['game']}",
+        #                             boxscore["ip"],
+        #                             boxscore["bf"],
+        #                             boxscore["np"],
+        #                             *[*metadata.values()][4:6],
+        #                         ]
+        #                         for boxscore in boxscore_by_position
+        #                     ]
+        #                 }
+        #                 response = (
+        #                     sheets.spreadsheets()
+        #                     .values()
+        #                     .append(spreadsheetId=args.id, range=args.ranges[1], valueInputOption="USER_ENTERED", insertDataOption="OVERWRITE", body=body)
+        #                     .execute()
+        #                 )
+        #                 LOGGER.info("updated %i rows in %s", response["updates"]["updatedRows"], args.ranges[1])
 
 
 if __name__ == "__main__":

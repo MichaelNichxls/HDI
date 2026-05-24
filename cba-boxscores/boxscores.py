@@ -14,14 +14,14 @@ import argparse
 import logging
 import os
 import re
-from collections.abc import Generator
+from collections.abc import Callable, Generator
 from datetime import datetime
 from itertools import groupby
 from typing import Any
 
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-from playwright.sync_api import BrowserContext, Locator, Page, TimeoutError, expect, sync_playwright
+from playwright.sync_api import BrowserContext, Locator, Page, TimeoutError, sync_playwright
 
 LOGGER = logging.getLogger(__name__)
 NOW = datetime.now()
@@ -103,6 +103,20 @@ PARENS_PATTERN = re.compile(r"\([^)]*\)")
 NUMBER_PATTERN = re.compile(r"#?\d{1,2}")
 LAST_FIRST_PATTERN = re.compile(r"(\b.*),\s*(.*\b)")
 
+GAME_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: locator.locator("table.schedule-event-table__table tbody > tr").or_(
+    locator.locator("table.sidearm-calendar-table tbody > tr")
+)
+MATCHUP_FIRST_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: locator.locator("td.schedule-event-cell--firstTeam .schedule-event-opponent__name").or_(
+    locator.locator("td.sidearm-team-away .sidearm-calendar-list-group-list-game-team-title")
+)
+MATCHUP_SECOND_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: locator.locator("td.schedule-event-cell--secondTeam .schedule-event-opponent__name").or_(
+    locator.locator("td.sidearm-team-home .sidearm-calendar-list-group-list-game-team-title")
+)
+DATE_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: locator.locator("td.schedule-event-cell--results_time span:not([class])").or_(
+    locator.locator("td span[data-bind*='date']")
+)
+URL_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: locator.locator("a:has-text('Stats')").or_(locator.locator("a:has-text('Box Score')"))
+
 
 def normalize(str_: str) -> str:
     str_ = PARENS_PATTERN.sub("", str_)
@@ -115,21 +129,12 @@ def get_boxscore_metadata(context: BrowserContext, url: str) -> Generator[dict[s
     with context.new_page() as page:
         page.set_default_timeout(10_000)
         page.goto(url)
+        # TODO: is there any other way to do this
         while True:
-            if (load := page.locator(".schedule-list__load_more__button")).is_visible():
-                load.click()
-            else:
-                break
-
-    # if conference == "sec":
-    #     LOGGER.info("goto %s", "https://www.secsports.com/schedule/baseball?view=season")
-    #     driver.get("https://www.secsports.com/schedule/baseball?view=season")
-
-    #     while True:
-    #         try:
-    #             wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "schedule-list__load_more__button"))).click()
-    #         except TimeoutException:
-    #             break
+            try:
+                page.locator(".schedule-list__load_more__button").click(timeout=5_000)
+            except TimeoutError:
+                pass
 
     #     for game in wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "table.schedule-event-table__table tbody > tr"))):
     #         matchup = (
@@ -266,7 +271,7 @@ def main() -> None:
 
     with (
         sync_playwright() as p,
-        p.chromium.launch() as browser,
+        p.chromium.launch(headless=False) as browser,
         browser.new_context(viewport={"width": 1920, "height": 1080}) as context,
     ):
         for series, metadata_by_series in groupby(get_boxscore_metadata(context, URLS[args.conference]), key=lambda m: m["series"]):
@@ -283,6 +288,7 @@ def main() -> None:
                     m["game"] = i
 
             for metadata in metadata_by_series:
+                break  # DEBUG
                 for batter, boxscore_by_position in groupby(get_boxscores(context, metadata), key=lambda b: b["position"] != "P"):
                     # TODO: simplify
                     if batter:

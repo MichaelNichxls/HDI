@@ -252,6 +252,7 @@ def main() -> None:
         p.chromium.launch() as browser,
         browser.new_context(viewport={"width": 1920, "height": 1080}) as context,
     ):
+        # TODO: utilize generator
         headshots = [*get_headshots(context, url)]
 
     # files = drive.files().list(

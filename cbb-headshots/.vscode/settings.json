@@ -35,6 +35,7 @@
         "numpy",
         "onetrust",
         "pytest",
+        "setuptools",
         "SRGB",
         "testpaths",
         "tflite",

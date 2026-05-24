@@ -18,6 +18,9 @@ dev = [
     "pytest-xdist",
 ]
 
+[tool.setuptools.packages.find]
+exclude = ["models*", "typings*"]
+
 [tool.pytest]
 testpaths = ["tests"]
 addopts = [

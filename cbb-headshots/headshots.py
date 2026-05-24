@@ -33,7 +33,9 @@ BASE64_PATTERN = re.compile(r"data:image/\w+;base64,\S+\b={0,2}")
 TOP_OFFSET = 0.7
 BOTTOM_OFFSET = 0.2
 
-LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
+type PageOrLocatorToLocator = Callable[[Page | Locator], Locator]
+
+LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator("select#sidearm-roster-select-template-dropdown")
     .or_(locator.locator("select#sidearm-roster-select-template"))
     .or_(locator.locator("section.roster__filters select#view"))
@@ -51,7 +53,7 @@ LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
     .or_(locator.locator(".roster-data table tbody tr th[data-label*='Name'] .player-name-social-row a:nth-of-type(1)"))
     .or_(locator.locator("[class*='common-team-section_container__']:not(:has(h2[class*='common-team-section_title__']:has-text('Coaches'))) a[class*='game-roster-group-player_playerCard__']"))  # noqa: E501
 )  # fmt: skip
-POPUP_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
+POPUP_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator("#iubenda-cs-banner")
     .or_(locator.locator("#gdpr-compliance"))
     .or_(locator.locator("#polite-pop-up"))
@@ -60,7 +62,7 @@ POPUP_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
     .or_(locator.locator(".sticky-popup"))
     .or_(locator.locator("#onetrust-banner-sdk"))
 )
-PLAYERS_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
+PLAYERS_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator("li.sidearm-list-card-item[data-player-id]")
     .or_(locator.locator("li.sidearm-roster-list-item"))
     .or_(locator.locator("section.roster__list:nth-of-type(2) .roster__list_item"))
@@ -72,7 +74,7 @@ PLAYERS_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
     .or_(locator.locator("#players .grid_view .player"))
     .or_(locator.locator("[itemprop='athlete']"))
 )
-PLAYERS_JERSEY_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
+PLAYERS_JERSEY_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator(".sidearm-roster-player-image .sidearm-roster-player-jersey")
     .or_(locator.locator(".sidearm-roster-list-item-number"))
     .or_(locator.locator(".roster-card__jersey-number"))
@@ -95,7 +97,7 @@ PLAYERS_JERSEY_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
     .or_(locator.locator(".bg-player-background h2 ~ * p:nth-of-type(1)"))
     .filter(has_text=NUMBER_PATTERN)
 )
-PLAYERS_HEADSHOT_LOCATOR: Callable[[Page | Locator], Locator] = lambda locator: (
+PLAYERS_HEADSHOT_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator(".sidearm-roster-player-image")
     .or_(locator.locator("img.sidearm-roster-list-item-photo-img"))
     .or_(locator.locator(".roster-card-item__thumb img"))
@@ -175,7 +177,6 @@ def get_headshots(context: BrowserContext, url: str) -> Generator[dict[str, str 
                 locator.select_option(["Roster View - Cards", "Card"])
                 if (go := page.locator("button#sidearm-roster-select-template-button")).is_visible():
                     go.click(force=True)
-
                 players = PLAYERS_LOCATOR(page)
                 players.first.wait_for()
                 for player in players.all():

@@ -1,11 +1,3 @@
-# TODO: remove stubs, add typings
-# TODO: easier to ask for permission
-# TODO: eager loading
-# TODO: less empty lines
-# TODO: visibility vs presence
-# TODO: _get_*()
-# TODO: normalize null check
-# TODO: no RE
 # TODO: configurable consts
 # TODO: option label in launch
 # TODO: no more body={} shenanigans
@@ -135,7 +127,10 @@ BP_PLAYER_NAME_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator
 ).or_(locator.locator("xpath=th[ancestor::tbody/preceding-sibling::caption]"))
 
 
-def normalize(locator: Locator) -> str:
+def normalize(locator: Locator) -> str | None:
+    if locator.count() == 0:
+        return None
+
     str_ = locator.inner_text(timeout=5_000)
     str_ = PARENS_PATTERN.sub("", str_)
     str_ = NUMBER_PATTERN.sub("", str_)

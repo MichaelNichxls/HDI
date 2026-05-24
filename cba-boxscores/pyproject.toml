@@ -9,6 +9,9 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["mypy"]
 
+[tool.setuptools.packages.find]
+exclude = ["typings*"]
+
 [tool.ruff]
 line-length = 180
 

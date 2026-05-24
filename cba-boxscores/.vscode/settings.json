@@ -13,6 +13,7 @@
         "boxscore",
         "boxscores",
         "googleapiclient",
-        "mypy"
+        "mypy",
+        "setuptools"
     ]
 }

@@ -17,7 +17,7 @@ from playwright.sync_api import BrowserContext, FrameLocator, Locator, Page, Tim
 
 LOGGER = logging.getLogger(__name__)
 NOW = datetime.now()
-SERIES = {
+SERIES_DATE = {
     "sec": datetime(NOW.year, 3, 13),
     "acc": datetime(NOW.year, 3, 6),
 }
@@ -131,23 +131,32 @@ def normalize(locator: Locator) -> str | None:
     if locator.count() == 0:
         return None
 
-    str_ = locator.inner_text(timeout=5_000)
+    str_ = locator.text_content()
     str_ = PARENS_PATTERN.sub("", str_)
     str_ = NUMBER_PATTERN.sub("", str_)
     str_ = LAST_FIRST_PATTERN.sub(r"\2 \1", str_)
     return " ".join(str_.replace("\n", " ").strip().title().split())
 
 
-# def get_boxscore_series(conference, metadata: dict[str, Any]) -> dict[str, Any]:
-#     series = ((date - SERIES[conference]).days + 1) // 7 + 1
+# def add_series_to_metadata(metadata: list[dict[str, Any], None, None], conference: str) -> None:
+#     # FIXME: holy slow
+#     for m in metadata:
+#         m["series"] = ((m["date"] - SERIES_DATE[conference]).days + 1) // 7 + 1
+#     # TODO: sort by series
+#     for _, metadata_by_series in groupby(metadata, key=lambda m: m["series"]):
+#         metadata_by_series.sort(key=lambda m: (m["matchup"], m["date"]))
+#         for _, metadata_by_matchup in groupby(metadata_by_series, key=lambda m: m["matchup"]):
+#             for i, m in enumerate(metadata_by_matchup, 1):
+#                 m["game"] = i
 
 
-def get_boxscore_metadata(context: BrowserContext, url_: str) -> Generator[dict[str, Any], None, None]:
+def get_boxscore_metadata(context: BrowserContext, url: str, series_date: datetime) -> Generator[dict[str, Any], None, None]:
     with context.new_page() as page:
         page.set_default_timeout(10_000)
-        page.goto(url_)
+        page.goto(url)
         while True:
             try:
+                # TODO: if visible the first time, loop
                 page.locator(".schedule-list__load_more__button").click(timeout=5_000)
             except TimeoutError:
                 break
@@ -158,19 +167,20 @@ def get_boxscore_metadata(context: BrowserContext, url_: str) -> Generator[dict[
                 normalize(META_MATCHUP_SECOND_LOCATOR(game)),
             )
             try:
-                date = datetime.strptime(f"{META_DATE_LOCATOR(game).inner_text()}, {NOW.year}", "%a., %b. %d, %Y")
+                date = datetime.strptime(f"{META_DATE_LOCATOR(game).text_content()}, {NOW.year}", "%a., %b. %d, %Y")
             except ValueError:
-                date = datetime.strptime(META_DATE_LOCATOR(game).inner_text(), "%A %m/%d/%Y")
+                date = datetime.strptime(META_DATE_LOCATOR(game).text_content(), "%A %m/%d/%Y")
 
-            url = url_loc.evaluate("el => el.href") if (url_loc := META_URL_LOCATOR(game)).is_visible() else None
+            url_ = url_loc.evaluate("el => el.href") if (url_loc := META_URL_LOCATOR(game)).is_visible() else None
+            series = ((date - series_date).days + 1) // 7 + 1
             yield {
                 "matchup": matchup,
                 "date": date,
-                "url": url,
+                "url": url_,
+                "series": series,
             }
 
 
-# series = ((date - SERIES[conference]).days + 1) // 7 + 1
 def get_boxscores(context: BrowserContext, url: str) -> Generator[dict[str, str], None, None]:
     with context.new_page() as page:
         page.set_default_timeout(10_000)
@@ -182,20 +192,20 @@ def get_boxscores(context: BrowserContext, url: str) -> Generator[dict[str, str]
             page_or_frame = page
             game = normalize(GAME_LOCATOR(page_or_frame))
 
-        date = datetime.strptime(DATE_LOCATOR(page_or_frame).inner_text(), "%m/%d/%Y")
+        date = datetime.strptime(DATE_LOCATOR(page_or_frame).text_content(), "%m/%d/%Y")
         for batting in BATTING_LOCATOR(page_or_frame).all():
             team = normalize(BP_TEAM_LOCATOR(batting))
             for player in BP_PLAYER_LOCATOR(batting).all():
                 data = player.locator("td, th").all()
                 name = normalize(BP_PLAYER_NAME_LOCATOR(player))
-                position = data[0].inner_text()
+                position = data[0].text_content()
                 yield {
                     "game": game,
                     "date": date,
                     "team": team,
                     "player": name,
                     "position": position,
-                    **{s: data[i].inner_text() for i, s in enumerate(STATS["batting"], 2)},
+                    **{s: data[i].text_content() for i, s in enumerate(STATS["batting"], 2)},
                 }
         for pitching in PITCHING_LOCATOR(page_or_frame).all():
             team = normalize(BP_TEAM_LOCATOR(pitching))
@@ -208,7 +218,7 @@ def get_boxscores(context: BrowserContext, url: str) -> Generator[dict[str, str]
                     "team": team,
                     "player": name,
                     "position": "P",
-                    **{s: data[i].inner_text() for i, s in enumerate(STATS["pitching"], 1)},
+                    **{s: data[i].text_content() for i, s in enumerate(STATS["pitching"], 1)},
                 }
 
 
@@ -233,67 +243,66 @@ def main() -> None:
         p.chromium.launch() as browser,
         browser.new_context(viewport={"width": 1920, "height": 1080}) as context,
     ):
-        # TODO: no position: P
-        for boxscore in get_boxscores(context, "https://www.secsports.com/boxscore/29842"):
-            pass
-        # for series, metadata_by_series in groupby(get_boxscore_metadata(context, URLS[args.conference]), key=lambda m: m["series"]):
-        #     if series not in range(1, 11):
-        #         continue
+        # TODO: P check in selectors
+        for series, metadata_by_series in groupby(get_boxscore_metadata(context, URLS[args.conference], SERIES_DATE[args.conference]), key=lambda m: m["series"]):
+            metadata_by_series = [
+                m
+                for m in metadata_by_series
+                if m["matchup"][0] in TEAMS[args.conference] and m["matchup"][1] in TEAMS[args.conference] and m["date"] <= NOW and m["url"] and series in range(1, 11)
+            ]
+            if not metadata_by_series:
+                continue
 
-        #     metadata_by_series = [
-        #         m for m in metadata_by_series if m["matchup"][0] in TEAMS[args.conference] and m["matchup"][1] in TEAMS[args.conference] and m["date"] <= NOW and m["url"]
-        #     ]
-        #     assert metadata_by_series
-        #     metadata_by_series.sort(key=lambda m: (m["matchup"], m["date"]))
-        #     for _, metadata_by_matchup in groupby(metadata_by_series, key=lambda m: m["matchup"]):
-        #         for i, m in enumerate(metadata_by_matchup, 1):
-        #             m["game"] = i
+            metadata_by_series.sort(key=lambda m: (m["matchup"], m["date"]))
+            for _, metadata_by_matchup in groupby(metadata_by_series, key=lambda m: m["matchup"]):
+                for i, m in enumerate(metadata_by_matchup, 1):
+                    m["game"] = i
 
-        #     for metadata in metadata_by_series:
-        #         for batter, boxscore_by_position in groupby(get_boxscores(context, metadata), key=lambda b: b["position"] != "P"):
-        #             # TODO: simplify
-        #             if batter:
-        #                 body = {
-        #                     "values": [
-        #                         [
-        #                             f"""=HYPERLINK("{metadata["url"]}", "{boxscore["game"]}")""",
-        #                             *[*boxscore.values()][1:4],
-        #                             f"{boxscore['player']}{metadata['series']}{metadata['game']}",
-        #                             boxscore["ab"],
-        #                             *[*metadata.values()][4:6],
-        #                         ]
-        #                         for boxscore in boxscore_by_position
-        #                     ]
-        #                 }
-        #                 response = (
-        #                     sheets.spreadsheets()
-        #                     .values()
-        #                     .append(spreadsheetId=args.id, range=args.ranges[0], valueInputOption="USER_ENTERED", insertDataOption="OVERWRITE", body=body)
-        #                     .execute()
-        #                 )
-        #                 LOGGER.info("updated %i rows in %s", response["updates"]["updatedRows"], args.ranges[0])
-        #             else:
-        #                 body = {
-        #                     "values": [
-        #                         [
-        #                             f"""=HYPERLINK("{metadata["url"]}", "{boxscore["game"]}")""",
-        #                             *[*boxscore.values()][1:4],
-        #                             f"{boxscore['player']}{metadata['series']}{metadata['game']}",
-        #                             boxscore["ip"],
-        #                             boxscore["bf"],
-        #                             boxscore["np"],
-        #                             *[*metadata.values()][4:6],
-        #                         ]
-        #                         for boxscore in boxscore_by_position
-        #                     ]
-        #                 }
-        #                 response = (
-        #                     sheets.spreadsheets()
-        #                     .values()
-        #                     .append(spreadsheetId=args.id, range=args.ranges[1], valueInputOption="USER_ENTERED", insertDataOption="OVERWRITE", body=body)
-        #                     .execute()
-        #                 )
-        #                 LOGGER.info("updated %i rows in %s", response["updates"]["updatedRows"], args.ranges[1])
+            for metadata in metadata_by_series:
+                for batter, boxscore_by_position in groupby(get_boxscores(context, metadata["url"]), key=lambda b: b["position"] != "P"):
+                    # TODO: simplify
+                    if batter:
+                        body = {
+                            "values": [
+                                [
+                                    f"""=HYPERLINK("{metadata["url"]}", "{boxscore["game"]}")""",
+                                    *[*boxscore.values()][1:4],
+                                    f"{boxscore['player']}{metadata['series']}{metadata['game']}",
+                                    boxscore["ab"],
+                                    *[*metadata.values()][4:6],
+                                ]
+                                for boxscore in boxscore_by_position
+                            ]
+                        }
+                        response = (
+                            sheets.spreadsheets()
+                            .values()
+                            .append(spreadsheetId=args.id, range=args.ranges[0], valueInputOption="USER_ENTERED", insertDataOption="OVERWRITE", body=body)
+                            .execute()
+                        )
+                        LOGGER.info("updated %i rows in %s", response["updates"]["updatedRows"], args.ranges[0])
+                    else:
+                        body = {
+                            "values": [
+                                [
+                                    f"""=HYPERLINK("{metadata["url"]}", "{boxscore["game"]}")""",
+                                    *[*boxscore.values()][1:4],
+                                    f"{boxscore['player']}{metadata['series']}{metadata['game']}",
+                                    boxscore["ip"],
+                                    boxscore["bf"],
+                                    boxscore["np"],
+                                    *[*metadata.values()][4:6],
+                                ]
+                                for boxscore in boxscore_by_position
+                            ]
+                        }
+                        response = (
+                            sheets.spreadsheets()
+                            .values()
+                            .append(spreadsheetId=args.id, range=args.ranges[1], valueInputOption="USER_ENTERED", insertDataOption="OVERWRITE", body=body)
+                            .execute()
+                        )
+                        LOGGER.info("updated %i rows in %s", response["updates"]["updatedRows"], args.ranges[1])
 
 
 if __name__ == "__main__":

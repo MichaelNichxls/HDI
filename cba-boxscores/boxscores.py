@@ -1,6 +1,5 @@
-# TODO: configurable consts
 # TODO: option label in launch
-# TODO: no more body={} shenanigans
+# TODO: performance
 
 import argparse
 import logging
@@ -159,8 +158,7 @@ def get_boxscore_metadata(context: BrowserContext, url: str, series_date: dateti
                 page.locator(".schedule-list__load_more__button").click(timeout=5_000)
             except TimeoutError:
                 break
-        # for calendar in wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "table.sidearm-calendar-table"))):
-        #     for game in calendar.find_elements(By.CSS_SELECTOR, "tbody > tr"):
+
         for game in META_GAME_LOCATOR(page).all():
             matchup = (
                 normalize(META_MATCHUP_FIRST_LOCATOR(game).text_content()),
@@ -198,14 +196,15 @@ def get_boxscores(context: BrowserContext, url: str) -> Generator[dict[str, str]
             for player in BP_PLAYER_LOCATOR(batting).all():
                 name = normalize(BP_PLAYER_NAME_LOCATOR(player).text_content())
                 data = player.locator("td, th").all()
-                position = data[0].text_content()
+                if (position := data[0].text_content().upper()) == "P":
+                    continue
                 yield {
                     "game": game,
                     "date": date,
                     "team": team,
                     "player": name,
                     "position": position,
-                    **{s: data[i].text_content() for i, s in enumerate(STATS["batting"], 2)},
+                    **{s: float(data[i].text_content()) for i, s in enumerate(STATS["batting"], 2)},
                 }
         for pitching in PITCHING_LOCATOR(page_or_frame).all():
             team = normalize(BP_TEAM_LOCATOR(pitching).text_content())
@@ -218,7 +217,7 @@ def get_boxscores(context: BrowserContext, url: str) -> Generator[dict[str, str]
                     "team": team,
                     "player": name,
                     "position": "P",
-                    **{s: data[i].text_content() for i, s in enumerate(STATS["pitching"], 1)},
+                    **{s: float(data[i].text_content()) for i, s in enumerate(STATS["pitching"], 1)},
                 }
 
 
@@ -245,7 +244,6 @@ def main() -> None:
         p.chromium.launch() as browser,
         browser.new_context(viewport={"width": 1920, "height": 1080}) as context,
     ):
-        # TODO: P check in selectors
         metadata = get_boxscore_metadata(context, URLS[args.conference], SERIES_DATE[args.conference])
         for metadata_by_series in enumerate_games_grouped_by_series(metadata):
             metadata_by_series = [
@@ -266,7 +264,7 @@ def main() -> None:
                         "values": [
                             [
                                 f"""=HYPERLINK("{m["url"]}", "{b["game"]}")""",
-                                b["date"],
+                                datetime.strftime(b["date"], "%m/%d/%Y"),
                                 b["team"],
                                 b["player"],
                                 f"""{b["player"]}{m["series"]}{m["game"]}""",

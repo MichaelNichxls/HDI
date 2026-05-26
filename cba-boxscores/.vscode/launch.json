@@ -12,7 +12,7 @@
                 "-r",
                 "${input:battingRange}",
                 "${input:pitchingRange}",
-                // "--clear"
+                "--clear"
             ]
         }
     ],

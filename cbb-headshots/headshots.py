@@ -35,6 +35,7 @@ BOTTOM_OFFSET = 0.2
 
 type PageOrLocatorToLocator = Callable[[Page | Locator], Locator]
 
+# fmt: off
 LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator("select#sidearm-roster-select-template-dropdown")
     .or_(locator.locator("select#sidearm-roster-select-template"))
@@ -51,8 +52,8 @@ LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator(".roster table tbody tr th.name > a"))
     .or_(locator.locator(".roster-data table tbody tr th > a"))
     .or_(locator.locator(".roster-data table tbody tr th[data-label*='Name'] .player-name-social-row a:nth-of-type(1)"))
-    .or_(locator.locator("[class*='common-team-section_container__']:not(:has(h2[class*='common-team-section_title__']:has-text('Coaches'))) a[class*='game-roster-group-player_playerCard__']"))  # noqa: E501
-)  # fmt: skip
+    .or_(locator.locator("[class*='common-team-section_container__']:not(:has(h2[class*='common-team-section_title__']:has-text('Coaches'))) a[class*='game-roster-group-player_playerCard__']"))
+)
 POPUP_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator("#iubenda-cs-banner")
     .or_(locator.locator("#gdpr-compliance"))
@@ -121,6 +122,7 @@ PLAYERS_HEADSHOT_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator("img[data-test-id='s-image-resized__img']"))
     .or_(locator.locator(".bg-player-background img.object-cover"))
 )
+# fmt: on
 
 
 def get_number(locator: Locator) -> str | None:
@@ -225,12 +227,14 @@ def circular_crop_faces(
 
 def main() -> None:
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    # fmt: off
     parser.add_argument("genius", help="genius of college basketball team to scrape headshots from and crop")
     parser.add_argument("-i", "--id", default=os.getenv("GOOGLE_DRIVE_ID"), help="id of google drive; required if GOOGLE_DRIVE_ID environment variable is not specified")
     parser.add_argument("-c", "--credentials", default="service_account.json", metavar="PATH", help="path of google service account json file")
     parser.add_argument("-m", "--model", default="models/blaze_face_short_range.tflite", metavar="PATH", help="path of face detection model")
     parser.add_argument("--wbb", action="store_true", help="whether women's college basketball should be scraped from instead; euroleague has no women teams")
     # parser.add_argument("--clear", action="store_true", help="")
+    # fmt: on
     args = parser.parse_args([a for a in sys.argv[1:] if a.strip()])
 
     credentials = service_account.Credentials.from_service_account_file(args.credentials, scopes=["https://www.googleapis.com/auth/drive"])

@@ -176,7 +176,6 @@ def get_headshots(context: BrowserContext, url: str) -> Generator[dict[str, str 
         }
 
     with context.new_page() as page:
-        page.set_default_timeout(10_000)
         page.add_locator_handler(POPUP_LOCATOR(page).first, lambda locator: locator.evaluate("el => el.remove()"), no_wait_after=True)
         _goto(page, url)
 

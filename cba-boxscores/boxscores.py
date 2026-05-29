@@ -150,7 +150,6 @@ def enumerate_games_grouped_by_series(metadata: Generator[Metadata, None, None])
 
 def get_boxscore_metadata(context: BrowserContext, url: str, series_date: datetime) -> Generator[Metadata, None, None]:
     with context.new_page() as page:
-        page.set_default_timeout(10_000)
         page.goto(url)
         while True:
             try:
@@ -181,7 +180,6 @@ def get_boxscore_metadata(context: BrowserContext, url: str, series_date: dateti
 
 def get_boxscores(context: BrowserContext, url: str) -> Generator[dict[str, str], None, None]:
     with context.new_page() as page:
-        page.set_default_timeout(10_000)
         page.goto(url)
         try:
             page_or_frame = page.frame_locator(".iframe-container__iframe").frame_locator("#boxscore")

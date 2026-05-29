@@ -550,7 +550,7 @@ Northwest Mo. St.,,NMO,NMOW,,https://bearcatsports.com/sports/mens-basketball/ro
 Northwest Nazarene,,NNZ,NNZW,,https://nnusports.com/sports/mens-basketball/roster/{season_42},https://nnusports.com/sports/womens-basketball/roster/{season_42}
 Northwestern Okla.,,NOK,NOKW,,https://riderangersride.com/sports/mens-basketball/roster/{season_42},https://riderangersride.com/sports/womens-basketball/roster/{season_42}
 Northwood,,NWD,NWDW,,https://www.gonorthwood.com/sports/mbkb/{season_42}/roster,https://www.gonorthwood.com/sports/wbkb/{season_42}/roster
-Notre Dame (OH),,NDO,NDOW,,https://fightingirish.com/sports/mbball/roster/season/{season_22},https://fightingirish.com/sports/wbball/roster/season/{season_22}
+Notre Dame (OH),,NDO,NDOW,,https://notredamefalcons.com/sports/mens-basketball/roster/{season_42},https://notredamefalcons.com/sports/womens-basketball/roster/{season_42}
 Nova Southeastern,,NSE,NSEW,,https://nsusharks.com/sports/mens-basketball/roster/{season_42},https://nsusharks.com/sports/womens-basketball/roster/{season_42}
 Ohio Dominican,,ODM,ODMW,,https://ohiodominicanpanthers.com/sports/mens-basketball/roster/{season_42},https://ohiodominicanpanthers.com/sports/womens-basketball/roster/{season_42}
 Okla. Baptist,Okla. Baptist,OBU,OBUW,,https://obubison.com/sports/mens-basketball/roster/{season_42},https://obubison.com/sports/womens-basketball/roster/{season_42}
@@ -1095,3 +1095,4 @@ Olympiacos Piraeus,,OPR,,,https://www.euroleaguebasketball.net/euroleague/teams/
 Panathinaikos,,PAT,,,https://www.euroleaguebasketball.net/euroleague/teams/panathinaikos-aktor-athens/roster/pan/?season={season_42},
 Real Madrid,,RMA,,,https://www.euroleaguebasketball.net/euroleague/teams/real-madrid/roster/mad/?season={season_42},
 Virtus Segafredo Bologna,,VSB,,,https://www.euroleaguebasketball.net/euroleague/teams/virtus-bologna/roster/vir/?season={season_42},
+Joventut Badalona,,JBD,,,https://basketball.eurobasket.com/team/Club-Joventut-Badalona/95/Roster,

@@ -2,6 +2,7 @@
 name = "cbb-headshots"
 version = "2026.5.24"
 dependencies = [
+    "environs",
     "google-api-python-client",
     "mediapipe",
     "numpy",

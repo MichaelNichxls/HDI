@@ -2,7 +2,6 @@ import argparse
 import csv
 import io
 import logging
-import os
 import re
 import sys
 from collections.abc import Callable, Generator
@@ -13,11 +12,14 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import requests
+from environs import Env
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseUpload
 from mediapipe.tasks.python import vision
 from playwright.sync_api import BrowserContext, Locator, Page, TimeoutError, expect, sync_playwright
+
+env = Env()
 
 LOGGER = logging.getLogger(__name__)
 NOW = datetime.now()
@@ -53,6 +55,7 @@ LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator(".roster-data table tbody tr th > a"))
     .or_(locator.locator(".roster-data table tbody tr th[data-label*='Name'] .player-name-social-row a:nth-of-type(1)"))
     .or_(locator.locator("[class*='common-team-section_container__']:not(:has(h2[class*='common-team-section_title__']:has-text('Coaches'))) a[class*='game-roster-group-player_playerCard__']"))
+    .or_(locator.locator("a:has(.spnplnamedesktop)"))
 )
 POPUP_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator("#iubenda-cs-banner")
@@ -62,6 +65,8 @@ POPUP_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator(".s-popup"))
     .or_(locator.locator(".sticky-popup"))
     .or_(locator.locator("#onetrust-banner-sdk"))
+    .or_(locator.locator("#mys-wrapper"))
+    .or_(locator.locator(".adsbygoogle[aria-hidden='false']"))
 )
 PLAYERS_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator("li.sidearm-list-card-item[data-player-id]")
@@ -96,6 +101,7 @@ PLAYERS_JERSEY_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator(".bordeaux_bio__title h1"))
     .or_(locator.locator("[itemprop='image'] ~ * .number"))
     .or_(locator.locator(".bg-player-background h2 ~ * p:nth-of-type(1)"))
+    .or_(locator.locator(".tduninumber"))
     .filter(has_text=NUMBER_PATTERN)
 )
 PLAYERS_HEADSHOT_LOCATOR: PageOrLocatorToLocator = lambda locator: (
@@ -121,6 +127,7 @@ PLAYERS_HEADSHOT_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator("[itemprop='image'] ~ a[style]"))
     .or_(locator.locator("img[data-test-id='s-image-resized__img']"))
     .or_(locator.locator(".bg-player-background img.object-cover"))
+    .or_(locator.locator("img.plfacepng"))
 )
 # fmt: on
 
@@ -132,6 +139,7 @@ def get_number(locator: Locator) -> str | None:
     return NUMBER_PATTERN.search(locator.inner_text()).group().zfill(2)
 
 
+# TODO: increase timeouts
 def get_img_url(locator: Locator) -> str | None:
     if locator.count() == 0:
         return None
@@ -191,18 +199,27 @@ def get_headshots(context: BrowserContext, url: str) -> Generator[dict[str, str 
                 for player in players.all():
                     yield _get_headshot(player)
 
-            # TODO: async
             case "A" if locator.count() > 1:
                 for a in locator.all():
+                    jersey = None
+                    if (jersey_loc := a.locator("xpath=ancestor::tr").locator(PLAYERS_JERSEY_LOCATOR(page))).is_visible():
+                        jersey = get_number(jersey_loc)
                     with context.new_page() as temp_page:
                         _goto(temp_page, a.evaluate("el => el.href"))
-                        yield _get_headshot(temp_page)
+                        headshot = _get_headshot(temp_page)
+                        headshot["jersey"] = jersey or headshot["jersey"]
+                        yield headshot
 
 
-# FIXME: tulsa: libpng warning: iCCP: known incorrect sRGB profile
 def circular_crop_faces(
-    detector: vision.FaceDetector, img: cv2.typing.MatLike, top_offset: float = TOP_OFFSET, bottom_offset: float = BOTTOM_OFFSET
+    detector: vision.FaceDetector,
+    img: cv2.typing.MatLike,
+    *,
+    top_offset: float = TOP_OFFSET,
+    bottom_offset: float = BOTTOM_OFFSET,
+    no_clip_bounds: bool = False,
 ) -> Generator[cv2.typing.MatLike, None, None]:
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
     mp_img = mp.Image(mp.ImageFormat.SRGB, cv2.cvtColor(img, cv2.COLOR_BGRA2RGB))
     for detection in detector.detect(mp_img).detections:
         bbox = detection.bounding_box
@@ -212,14 +229,20 @@ def circular_crop_faces(
 
         cx, cy = x + w // 2, y + h // 2
         ih, iw = img.shape[:2]
-        size = max(w, h)
 
-        x1 = np.clip(cx - size // 2, 0, iw - size)
-        y1 = np.clip(cy - size // 2, 0, ih - size)
-        side = min(size, iw - x1, ih - y1)
-        x2, y2 = x1 + side, y1 + side
+        if no_clip_bounds:
+            side = max(w, h)
+            cx_padded, cy_padded = cx + side, cy + side
+            img_padded = cv2.copyMakeBorder(img, side, side, side, side, borderType=cv2.BORDER_CONSTANT, value=0)
+            x1, y1 = cx_padded - side // 2, cy_padded - side // 2
+            x2, y2 = x1 + side, y1 + side
+            crop = img_padded[y1:y2, x1:x2].copy()
+        else:
+            side = min(max(w, h), iw, ih)
+            x1, y1 = np.clip(cx - side // 2, 0, iw - side), np.clip(cy - side // 2, 0, ih - side)
+            x2, y2 = x1 + side, y1 + side
+            crop = img[y1:y2, x1:x2].copy()
 
-        crop = img[y1:y2, x1:x2].copy()
         mask = np.zeros((side, side), np.uint8)
         cv2.circle(mask, (side // 2, side // 2), side // 2, 255, -1)
         yield cv2.bitwise_and(crop, crop, mask=mask)
@@ -229,11 +252,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     # fmt: off
     parser.add_argument("genius", help="genius of college basketball team to scrape headshots from and crop")
-    parser.add_argument("-i", "--id", default=os.getenv("GOOGLE_DRIVE_ID"), help="id of google drive; required if GOOGLE_DRIVE_ID environment variable is not specified")
+    parser.add_argument("-i", "--id", default=env.str("GOOGLE_DRIVE_ID", default=None), help="id of google drive; required if GOOGLE_DRIVE_ID environment variable is not specified")
     parser.add_argument("-c", "--credentials", default="service_account.json", metavar="PATH", help="path of google service account json file")
     parser.add_argument("-m", "--model", default="models/blaze_face_short_range.tflite", metavar="PATH", help="path of face detection model")
-    parser.add_argument("--wbb", action="store_true", help="whether women's college basketball should be scraped from instead; euroleague has no women teams")
+    parser.add_argument("--wbb", action="store_true", help="whether women's college basketball should be scraped from instead; euroleague and spanish league have no women teams")
     # parser.add_argument("--clear", action="store_true", help="")
+    parser.add_argument("--top-offset", default=env.float("HDI_TOP_OFFSET", default=TOP_OFFSET), metavar="OFFSET", help="top offset to crop headshot")
+    parser.add_argument("--bottom-offset", default=env.float("HDI_BOTTOM_OFFSET", default=BOTTOM_OFFSET), metavar="OFFSET", help="bottom offset to crop headshot")
+    parser.add_argument("--no-clip-bounds", action="store_true", default=env.bool("HDI_NO_CLIP_BOUNDS", default=False), help="whether to not clip image bounds when cropping headshot; useful for small images")
     # fmt: on
     args = parser.parse_args([a for a in sys.argv[1:] if a.strip()])
 
@@ -252,14 +278,6 @@ def main() -> None:
     id = drive.files().list(supportsAllDrives=True, includeItemsFromAllDrives=True, q=q).execute()["files"][0]["id"]
     assert id
 
-    with (
-        sync_playwright() as p,
-        p.chromium.launch() as browser,
-        browser.new_context(viewport={"width": 1920, "height": 1080}) as context,
-    ):
-        # TODO: utilize generator
-        headshots = [*get_headshots(context, url)]
-
     # files = drive.files().list(
     #     supportsAllDrives=True,
     #     includeItemsFromAllDrives=True,
@@ -270,16 +288,24 @@ def main() -> None:
     #     drive.files().delete(fileId=file["id"], supportsAllDrives=True).execute()
     #     LOGGER.info("deleted %s", file["name"])
 
-    with vision.FaceDetector.create_from_model_path(args.model) as detector:
-        for headshot in headshots:
+    with (
+        sync_playwright() as p,
+        p.chromium.launch() as browser,
+        browser.new_context(viewport={"width": 1920, "height": 1080}) as context,
+        vision.FaceDetector.create_from_model_path(args.model) as detector,
+    ):
+        for headshot in get_headshots(context, url):
             filename = f"{genius[args.genius]['HDI' if not args.wbb else 'HDIW']}{headshot['jersey']}pic.png"
             if not headshot["headshot"] or not headshot["jersey"]:
                 LOGGER.warning("no headshot or jersey found for %s at %s", filename, url)
                 continue
 
-            buffer = requests.get(headshot["headshot"]).content
+            buffer = requests.get(
+                headshot["headshot"],
+                headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 OPR/131.0.0.0"},
+            ).content
             decoded = cv2.imdecode(np.frombuffer(buffer, np.uint8), cv2.IMREAD_UNCHANGED)
-            crops = [*circular_crop_faces(detector, decoded)]
+            crops = [*circular_crop_faces(detector, decoded, top_offset=args.top_offset, bottom_offset=args.bottom_offset, no_clip_bounds=args.no_clip_bounds)]
             if len(crops) == 0:
                 LOGGER.warning("no faces detected for %s at %s", filename, url)
                 continue
@@ -293,8 +319,6 @@ def main() -> None:
             media = MediaIoBaseUpload(io.BytesIO(encoded), "image/png", resumable=True)
             drive.files().create(supportsAllDrives=True, media_body=media, body={"name": filename, "parents": [id]}).execute()
             LOGGER.info("created %s", filename)
-        else:
-            LOGGER.info("finished successfully")
 
 
 if __name__ == "__main__":

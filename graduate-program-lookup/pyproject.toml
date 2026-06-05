@@ -1,0 +1,31 @@
+[project]
+name = "graduate-program-lookup"
+version = "2026.6.4"
+dependencies = [
+    "google-api-python-client",
+    "playwright",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-playwright",
+]
+
+[tool.setuptools.packages.find]
+exclude = ["typings*"]
+
+[tool.pytest]
+testpaths = ["tests"]
+addopts = [
+    "--tb=short",
+    "--headed",
+]
+tmp_path_retention_policy = "none"
+
+[tool.ruff]
+line-length = 180
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B"]
+ignore = ["E501", "E731"]

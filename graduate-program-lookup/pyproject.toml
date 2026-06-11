@@ -1,27 +1,21 @@
 [project]
 name = "graduate-program-lookup"
-version = "2026.6.4"
+version = "2026.6.9"
 dependencies = [
     "google-api-python-client",
-    "playwright",
+    "google-genai",
     "tenacity",
 ]
 
 [project.optional-dependencies]
-dev = [
-    "pytest",
-    "pytest-playwright",
-]
+dev = ["pytest"]
 
 [tool.setuptools.packages.find]
 exclude = ["typings*"]
 
 [tool.pytest]
 testpaths = ["tests"]
-addopts = [
-    "--tb=short",
-    "--headed",
-]
+addopts = ["--tb=short"]
 tmp_path_retention_policy = "none"
 
 [tool.ruff]

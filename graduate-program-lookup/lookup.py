@@ -1,44 +1,44 @@
 import argparse
 import csv
-import json
 import logging
 import os
-import textwrap
-from typing import Any
-from urllib.parse import quote_plus
 
+from google import genai
+from google.genai import types
+from google.genai.errors import APIError
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-from playwright.sync_api import BrowserContext, sync_playwright
-from tenacity import retry, stop_after_attempt
+from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
 
 LOGGER = logging.getLogger(__name__)
-RESPONSE_FORMAT = {
-    "sports_analytics": bool.__name__,
-    "data_analytics": bool.__name__,
-    "data_science": bool.__name__,
-    "business_analytics": bool.__name__,
-}
-
-
-@retry(stop=stop_after_attempt(5), reraise=True)
-def get_ai_search_result(context: BrowserContext, query: str, format: dict[str, Any]) -> dict[str, Any]:
-    with context.new_page() as page:
-        q = textwrap.dedent(f"""
-            QUERY: {query}
-            FORMAT: {json.dumps(format)}
-            RESPONSE: JSON
-        """)
-        page.goto(f"https://google.com/search?q={quote_plus(q)}")
-        page.wait_for_url("**/search?**", timeout=0)
-        page.get_by_role("link", name="AI Mode").click()
-        page.wait_for_url("**/search?**", timeout=0)
-        return json.loads(page.locator("pre code").text_content())
+# TODO: logging
+API_RETRY = retry(
+    stop=stop_after_attempt(5),
+    wait=wait_exponential(min=2, max=32),
+    retry=retry_if_exception_type(APIError),
+    reraise=True,
+)
+SCHEMA = types.Schema(
+    type=types.Type.OBJECT,
+    properties={
+        "sports_analytics": types.Schema(type=types.Type.BOOLEAN, description="If the institution contains a master's degree for Sports Analysis"),
+        "data_analytics": types.Schema(type=types.Type.BOOLEAN, description="If the institution contains a master's degree for Data Analysis"),
+        "data_science": types.Schema(type=types.Type.BOOLEAN, description="If the institution contains a master's degree for Data Science"),
+        "business_analytics": types.Schema(type=types.Type.BOOLEAN, description="If the institution contains a master's degree for Business Analysis"),
+    },
+    required=["sports_analytics", "data_analytics", "data_science", "business_analytics"],
+)
+CONFIG = types.GenerateContentConfig(
+    tools=[types.Tool(google_search=types.GoogleSearch())],
+    response_mime_type="application/json",
+    response_schema=SCHEMA,
+)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     # fmt: off
+    # TODO: support for structured outputs with built-in tools is available only to Gemini 3 series models
     parser.add_argument("-i", "--id", default=os.getenv("GOOGLE_SPREADSHEET_ID"), help="id of google spreadsheet; required if GOOGLE_SPREADSHEET_ID environment variable is not specified")
     parser.add_argument("-c", "--credentials", default="service_account.json", metavar="PATH", help="path of google service account json file")
     parser.add_argument("-r", "--range", default="Sheet1!A1", metavar="RANGE", help="range within google spreadsheet to write the data to")
@@ -51,34 +51,64 @@ def main() -> None:
 
     if args.clear:
         clear = sheets.spreadsheets().values().clear(spreadsheetId=args.id, range=args.range).execute()
-        LOGGER.info("cleared %s", clear["clearedRange"])
+        LOGGER.info("%s Cleared", clear["clearedRange"])
 
     with open("institutions.csv", encoding="utf-8-sig") as f:
         institutions = [*csv.DictReader(f)]
 
-    with (
-        sync_playwright() as p,
-        p.chromium.launch(headless=False, args=["--disable-blink-features=AutomationControlled"]) as browser,
-        browser.new_context() as context,
-    ):
-        context.set_default_timeout(10_000)
-        for institution in institutions:
-            result = get_ai_search_result(context, f"Does {institution['Institution']} contain a master's degree for: {', '.join(RESPONSE_FORMAT)}", RESPONSE_FORMAT)
-            append = (
-                sheets.spreadsheets()
-                .values()
-                .append(
-                    spreadsheetId=args.id,
-                    range=args.range,
-                    valueInputOption="USER_ENTERED",
-                    insertDataOption="OVERWRITE",
-                    body={"values": [[institution["Institution"], *result.values()]]},
-                )
-                .execute()
+    client = genai.Client()
+    for institution in institutions:
+        # TODO: rename, optimize
+        response = API_RETRY(client.models.generate_content)(
+            model="gemini-3.1-flash-lite",
+            contents=f"Which master's degree does `{institution['Institution']}` contain?",
+            config=CONFIG,
+        )
+        append = (
+            sheets.spreadsheets()
+            .values()
+            .append(
+                spreadsheetId=args.id,
+                range=args.range,
+                valueInputOption="USER_ENTERED",
+                insertDataOption="OVERWRITE",
+                body={"values": [[institution["Institution"], *response.parsed.values()]]},
             )
-            LOGGER.info("updated %i rows in %s, %s", append["updates"]["updatedRows"], args.range, institution["Institution"])
+            .execute()
+        )
+        LOGGER.info("%s Updated %i row(s): %s", append["updates"]["updatedRange"], append["updates"]["updatedRows"], institution["Institution"])
 
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     main()
+
+
+# INFO:httpx:HTTP Request: POST ht 8i9otps://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+# INFO:__main__:'Graduate Program Lookup'!A1371:E1371 Updated 1 row(s): Oconee Fall Line Technical College
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+# INFO:__main__:'Graduate Program Lookup'!A1372:E1372 Updated 1 row(s): Ogeechee Technical College
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+# INFO:__main__:'Graduate Program Lookup'!A1373:E1373 Updated 1 row(s): Savannah Technical College
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"
+# INFO:google_genai.models:AFC is enabled with max remote calls: 10.
+# INFO:httpx:HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 429 Too Many Requests"

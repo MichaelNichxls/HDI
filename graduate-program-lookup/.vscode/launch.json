@@ -9,8 +9,8 @@
             "program": "lookup.py",
             "args": [
                 "-r",
-                "'Graduate Program Lookup'!A2:E",
-                "--clear",
+                "Graduate Program Lookup!A2:E",
+                // "--clear",
             ]
         }
     ]

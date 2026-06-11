@@ -83,6 +83,7 @@ PLAYERS_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator(".plantilla .items-row > *"))
     .or_(locator.locator(".view-plantilla h3:not(:has-text('Cuerpo Técnico')) + * > * > *"))
     .or_(locator.locator("#roster .listado-personas > *"))
+    .or_(locator.locator("h2:not(:has-text('Coaches')) + * > a[class*='__playerCard']"))
 )
 PLAYERS_JERSEY_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator(".sidearm-roster-player-image .sidearm-roster-player-jersey")
@@ -111,6 +112,7 @@ PLAYERS_JERSEY_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator(".img-dorsal"))
     .or_(locator.locator(".card-deportista__info__dorsal"))
     .or_(locator.locator(".contenido .dorsal"))
+    .or_(locator.locator(".bg-player-background h2 + * > p:first-child"))
     .filter(has_text=NUMBER_PATTERN)
 )
 PLAYERS_HEADSHOT_LOCATOR: PageOrLocatorToLocator = lambda locator: (
@@ -142,6 +144,7 @@ PLAYERS_HEADSHOT_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator("img[itemprop='thumbnailUrl']"))
     .or_(locator.locator("img.image-style-foto-deportista"))
     .or_(locator.locator(".contenido a img"))
+    .or_(locator.locator(".bg-player-background > * > * > img"))
 )
 # fmt: on
 
@@ -160,9 +163,11 @@ def get_img_url(locator: Locator) -> str | None:
     locator.scroll_into_view_if_needed()
     expect(locator).not_to_have_css("background-image", BASE64_PATTERN)
     expect(locator).not_to_have_attribute("src", BASE64_PATTERN)
+    expect(locator).not_to_have_attribute("srcset", BASE64_PATTERN)
 
-    img: dict[str, str] = locator.evaluate("el => ({ bg: window.getComputedStyle(el).backgroundImage, src: el.src })")
-    if not (url := img["bg"] if img["bg"] != "none" else img["src"]):
+    # TODO: handle better
+    img: dict[str, str] = locator.evaluate("el => ({ bg: window.getComputedStyle(el).backgroundImage, src: el.src, srcset:el.srcset })")
+    if not (url := img["bg"] if img["bg"] != "none" else img["src"] or img["srcset"].split()[0]):
         return None
 
     parsed = urlparse(URL_PATTERN.search(url).group())
@@ -320,6 +325,7 @@ def main() -> None:
                     no_clip_bounds=args.no_clip_bounds,
                 )
             ]
+            # TODO: for loop
             if len(crops) == 0:
                 LOGGER.warning("no faces detected for %s at %s", filename, url)
                 continue

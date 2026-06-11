@@ -28,9 +28,9 @@ addopts = [
     "-k=not (test_locators and -URLW)",
     "-n=4",
     "--dist=worksteal",
-    "--retries=2",
+    "--retries=1",
     "--tb=short",
-    # "--headed"
+    "--headed",
 ]
 tmp_path_retention_policy = "none"
 

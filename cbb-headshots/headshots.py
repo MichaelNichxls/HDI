@@ -24,10 +24,10 @@ env = Env()
 LOGGER = logging.getLogger(__name__)
 NOW = datetime.now()
 SEASON = {
-    "season_4": f"{NOW.replace(NOW.year - 1):%Y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%Y}",
-    "season_22": f"{NOW.replace(NOW.year - 1):%y}{NOW:%y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%y}{NOW.replace(NOW.year + 1):%y}",
-    "season_42": f"{NOW.replace(NOW.year - 1):%Y}-{NOW:%y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%Y}-{NOW.replace(NOW.year + 1):%y}",
-    "season_44": f"{NOW.replace(NOW.year - 1):%Y}-{NOW:%Y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%Y}-{NOW.replace(NOW.year + 1):%Y}",
+    "season_Y": f"{NOW.replace(NOW.year - 1):%Y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%Y}",
+    "season_yy": f"{NOW.replace(NOW.year - 1):%y}{NOW:%y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%y}{NOW.replace(NOW.year + 1):%y}",
+    "season_Yy": f"{NOW.replace(NOW.year - 1):%Y}-{NOW:%y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%Y}-{NOW.replace(NOW.year + 1):%y}",
+    "season_YY": f"{NOW.replace(NOW.year - 1):%Y}-{NOW:%Y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%Y}-{NOW.replace(NOW.year + 1):%Y}",
 }
 NUMBER_PATTERN = re.compile(r"\d{1,2}")
 URL_PATTERN = re.compile(r"https?://\S+\b")
@@ -38,7 +38,7 @@ BOTTOM_OFFSET = 0.2
 type PageOrLocatorToLocator = Callable[[Page | Locator], Locator]
 
 # fmt: off
-LOCATOR: PageOrLocatorToLocator = lambda locator: (
+VIEW_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator("select#sidearm-roster-select-template-dropdown")
     .or_(locator.locator("select#sidearm-roster-select-template"))
     .or_(locator.locator("section.roster__filters select#view"))
@@ -50,12 +50,6 @@ LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator("a.section-title_togglers_grid"))
     .or_(locator.locator("a[data-view='card']"))
     .or_(locator.locator(".hero__view a:has-text('Cards')"))
-    .or_(locator.locator("table#DataTables_Table_2 tbody tr td[data-order] a"))
-    .or_(locator.locator(".roster table tbody tr th.name > a"))
-    .or_(locator.locator(".roster-data table tbody tr th > a"))
-    .or_(locator.locator(".roster-data table tbody tr th[data-label*='Name'] .player-name-social-row a:nth-of-type(1)"))
-    .or_(locator.locator("[class*='common-team-section_container__']:not(:has(h2[class*='common-team-section_title__']:has-text('Coaches'))) a[class*='game-roster-group-player_playerCard__']"))
-    .or_(locator.locator("a:has(.spnplnamedesktop)"))
 )
 POPUP_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator("#iubenda-cs-banner")
@@ -65,8 +59,7 @@ POPUP_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator(".s-popup"))
     .or_(locator.locator(".sticky-popup"))
     .or_(locator.locator("#onetrust-banner-sdk"))
-    .or_(locator.locator("#mys-wrapper"))
-    .or_(locator.locator(".adsbygoogle[aria-hidden='false']"))
+    .or_(locator.locator("#CybotCookiebotDialog"))
 )
 PLAYERS_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator("li.sidearm-list-card-item[data-player-id]")
@@ -79,6 +72,17 @@ PLAYERS_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator("#cardPanel > * > .s-person-card"))
     .or_(locator.locator("#players .grid_view .player"))
     .or_(locator.locator("[itemprop='athlete']"))
+    .or_(locator.locator("table#DataTables_Table_2 tbody tr td[data-order] a"))
+    .or_(locator.locator(".roster table tbody tr th.name > a"))
+    .or_(locator.locator(".roster-data table tbody tr th > a"))
+    .or_(locator.locator(".roster-data table tbody tr th[data-label*='Name'] .player-name-social-row a:nth-of-type(1)"))
+    .or_(locator.locator(".bottom-team:has-text('L’EQUIPE') + .managment-bottom > a"))
+    .or_(locator.locator("[class$='Wrapper'] > * > a[class^='LinkButton-module_button__']"))
+    .or_(locator.locator("canales-digitales-baskonia-alaves-member-card"))
+    .or_(locator.locator(".players h4:not(:has-text('Cuerpo técnico')) + app-swipe-carousel app-player-profile-card"))
+    .or_(locator.locator(".plantilla .items-row > *"))
+    .or_(locator.locator(".view-plantilla h3:not(:has-text('Cuerpo Técnico')) + * > * > *"))
+    .or_(locator.locator("#roster .listado-personas > *"))
 )
 PLAYERS_JERSEY_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     locator.locator(".sidearm-roster-player-image .sidearm-roster-player-jersey")
@@ -100,8 +104,13 @@ PLAYERS_JERSEY_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator(".thumb:has(.image) span"))
     .or_(locator.locator(".bordeaux_bio__title h1"))
     .or_(locator.locator("[itemprop='image'] ~ * .number"))
-    .or_(locator.locator(".bg-player-background h2 ~ * p:nth-of-type(1)"))
-    .or_(locator.locator(".tduninumber"))
+    .or_(locator.locator(".les-topsh1"))
+    .or_(locator.locator(".player-content .dorsal"))
+    .or_(locator.locator("[class^='Column-module_column__'] > *:has(+ h1[id]):last-of-type"))
+    .or_(locator.locator(".profile-card__number"))
+    .or_(locator.locator(".img-dorsal"))
+    .or_(locator.locator(".card-deportista__info__dorsal"))
+    .or_(locator.locator(".contenido .dorsal"))
     .filter(has_text=NUMBER_PATTERN)
 )
 PLAYERS_HEADSHOT_LOCATOR: PageOrLocatorToLocator = lambda locator: (
@@ -126,8 +135,13 @@ PLAYERS_HEADSHOT_LOCATOR: PageOrLocatorToLocator = lambda locator: (
     .or_(locator.locator("[itemprop='image'] ~ a.image img"))
     .or_(locator.locator("[itemprop='image'] ~ a[style]"))
     .or_(locator.locator("img[data-test-id='s-image-resized__img']"))
-    .or_(locator.locator(".bg-player-background img.object-cover"))
-    .or_(locator.locator("img.plfacepng"))
+    .or_(locator.locator(".player-box img"))
+    .or_(locator.locator("canales-digitales-baskonia-alaves-strapi-image img"))
+    .or_(locator.locator("[class^='Image-module_imageFill'] img"))
+    .or_(locator.locator("img.profile-card__img"))
+    .or_(locator.locator("img[itemprop='thumbnailUrl']"))
+    .or_(locator.locator("img.image-style-foto-deportista"))
+    .or_(locator.locator(".contenido a img"))
 )
 # fmt: on
 
@@ -139,7 +153,6 @@ def get_number(locator: Locator) -> str | None:
     return NUMBER_PATTERN.search(locator.inner_text()).group().zfill(2)
 
 
-# TODO: increase timeouts
 def get_img_url(locator: Locator) -> str | None:
     if locator.count() == 0:
         return None
@@ -147,14 +160,13 @@ def get_img_url(locator: Locator) -> str | None:
     locator.scroll_into_view_if_needed()
     expect(locator).not_to_have_css("background-image", BASE64_PATTERN)
     expect(locator).not_to_have_attribute("src", BASE64_PATTERN)
-    expect(locator).not_to_have_attribute("srcset", BASE64_PATTERN)
 
-    img: dict[str, str] = locator.evaluate("el => ({ bg: window.getComputedStyle(el).backgroundImage, src: el.src || el.srcset })")
-    if not (url := img["bg"] if img["bg"] != "none" else img["src"].split(" ")[0]):
+    img: dict[str, str] = locator.evaluate("el => ({ bg: window.getComputedStyle(el).backgroundImage, src: el.src })")
+    if not (url := img["bg"] if img["bg"] != "none" else img["src"]):
         return None
 
     parsed = urlparse(URL_PATTERN.search(url).group())
-    query = {k: v for k, v in parse_qs(parsed.query).items() if all(q not in k for q in ("width", "height", "type"))}
+    query = {k: v for k, v in parse_qs(parsed.query).items() if all(q not in k for q in ("width", "height", "type", "wid", "hei", "fit"))}
     if "url" in query:
         return unquote(query["url"][0])
 
@@ -162,6 +174,7 @@ def get_img_url(locator: Locator) -> str | None:
     return urlunparse(parsed._replace(query=new_query))
 
 
+# TODO: optimize
 def get_headshots(context: BrowserContext, url: str) -> Generator[dict[str, str | None], None, None]:
     def _goto(page: Page, url: str) -> None:
         try:
@@ -178,36 +191,25 @@ def get_headshots(context: BrowserContext, url: str) -> Generator[dict[str, str 
     with context.new_page() as page:
         page.add_locator_handler(POPUP_LOCATOR(page).first, lambda locator: locator.evaluate("el => el.remove()"), no_wait_after=True)
         _goto(page, url)
+        if (view := VIEW_LOCATOR(page)).is_visible():
+            match view.evaluate("el => el.tagName"):
+                case "SELECT":
+                    view.select_option(["Roster View - Cards", "Card"])
+                    if (go := page.locator("button#sidearm-roster-select-template-button")).is_visible():
+                        go.click(force=True)
+                case "BUTTON" | "A":
+                    view.click(force=True)
 
-        locator = LOCATOR(page)
-        match locator.first.evaluate("el => el.tagName"):
-            case "SELECT":
-                locator.hover()
-                locator.select_option(["Roster View - Cards", "Card"])
-                if (go := page.locator("button#sidearm-roster-select-template-button")).is_visible():
-                    go.click(force=True)
-                players = PLAYERS_LOCATOR(page)
-                players.first.wait_for()
-                for player in players.all():
-                    yield _get_headshot(player)
-
-            case "BUTTON" | "A" if locator.count() == 1:
-                locator.click(force=True)
-                players = PLAYERS_LOCATOR(page)
-                players.first.wait_for()
-                for player in players.all():
-                    yield _get_headshot(player)
-
-            case "A" if locator.count() > 1:
-                for a in locator.all():
-                    jersey = None
-                    if (jersey_loc := a.locator("xpath=ancestor::tr").locator(PLAYERS_JERSEY_LOCATOR(page))).is_visible():
-                        jersey = get_number(jersey_loc)
+        players = PLAYERS_LOCATOR(page)
+        players.first.wait_for()
+        for player in players.all():
+            match player.evaluate("el => el.tagName"):
+                case "A":
                     with context.new_page() as temp_page:
-                        _goto(temp_page, a.evaluate("el => el.href"))
-                        headshot = _get_headshot(temp_page)
-                        headshot["jersey"] = jersey or headshot["jersey"]
-                        yield headshot
+                        _goto(temp_page, player.evaluate("el => el.href"))
+                        yield _get_headshot(temp_page)
+                case _:
+                    yield _get_headshot(player)
 
 
 def circular_crop_faces(
@@ -272,11 +274,15 @@ def main() -> None:
     url = genius[args.genius]["URL" if not args.wbb else "URLW"].format(**SEASON)
     assert url
 
-    # TODO: create folder if one doesn't exist
-    q = f"'{args.id}' in parents and name='{args.genius}' and trashed=false"
-    id = drive.files().list(supportsAllDrives=True, includeItemsFromAllDrives=True, q=q).execute()["files"][0]["id"]
+    list_ = drive.files().list(
+        supportsAllDrives=True,
+        includeItemsFromAllDrives=True,
+        q=f"'{args.id}' in parents and name='{args.genius}' and trashed=false",
+    )
+    id = list_.execute()["files"][0]["id"]
     assert id
 
+    # TODO: create folder if one doesn't exist
     # files = drive.files().list(
     #     supportsAllDrives=True,
     #     includeItemsFromAllDrives=True,
@@ -287,6 +293,7 @@ def main() -> None:
     #     drive.files().delete(fileId=file["id"], supportsAllDrives=True).execute()
     #     LOGGER.info("deleted %s", file["name"])
 
+    # TODO: first None or "0"
     with (
         sync_playwright() as p,
         p.chromium.launch() as browser,
@@ -304,7 +311,15 @@ def main() -> None:
                 headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 OPR/131.0.0.0"},
             ).content
             decoded = cv2.imdecode(np.frombuffer(buffer, np.uint8), cv2.IMREAD_UNCHANGED)
-            crops = [*circular_crop_faces(detector, decoded, top_offset=args.top_offset, bottom_offset=args.bottom_offset, no_clip_bounds=args.no_clip_bounds)]
+            crops = [
+                *circular_crop_faces(
+                    detector,
+                    decoded,
+                    top_offset=args.top_offset,
+                    bottom_offset=args.bottom_offset,
+                    no_clip_bounds=args.no_clip_bounds,
+                )
+            ]
             if len(crops) == 0:
                 LOGGER.warning("no faces detected for %s at %s", filename, url)
                 continue
@@ -315,8 +330,11 @@ def main() -> None:
             if not success:
                 continue
 
-            media = MediaIoBaseUpload(io.BytesIO(encoded), "image/png", resumable=True)
-            drive.files().create(supportsAllDrives=True, media_body=media, body={"name": filename, "parents": [id]}).execute()
+            drive.files().create(
+                supportsAllDrives=True,
+                media_body=MediaIoBaseUpload(io.BytesIO(encoded), "image/png", resumable=True),
+                body={"name": filename, "parents": [id]},
+            ).execute()
             LOGGER.info("created %s", filename)
 
 

@@ -2,6 +2,7 @@ import argparse
 import csv
 import io
 import logging
+import os
 import re
 import sys
 from collections.abc import Callable, Generator
@@ -12,160 +13,175 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import requests
-from environs import Env
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseUpload
 from mediapipe.tasks.python import vision
-from playwright.sync_api import BrowserContext, Locator, Page, TimeoutError, sync_playwright
-
-env = Env()
+from playwright.sync_api import BrowserContext, Locator, Page, sync_playwright
 
 LOGGER = logging.getLogger(__name__)
 NOW = datetime.now()
 SEASON = {
-    "season_Y": f"{NOW.replace(NOW.year - 1):%Y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%Y}",
-    "season_yy": f"{NOW.replace(NOW.year - 1):%y}{NOW:%y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%y}{NOW.replace(NOW.year + 1):%y}",
-    "season_Yy": f"{NOW.replace(NOW.year - 1):%Y}-{NOW:%y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%Y}-{NOW.replace(NOW.year + 1):%y}",
-    "season_YY": f"{NOW.replace(NOW.year - 1):%Y}-{NOW:%Y}" if NOW < datetime(NOW.year, 6, 1) else f"{NOW:%Y}-{NOW.replace(NOW.year + 1):%Y}",
+    "season_Y": f"{NOW.replace(NOW.year - 1):%Y}" if NOW < datetime(NOW.year, 8, 1) else f"{NOW:%Y}",
+    "season_yy": f"{NOW.replace(NOW.year - 1):%y}{NOW:%y}" if NOW < datetime(NOW.year, 8, 1) else f"{NOW:%y}{NOW.replace(NOW.year + 1):%y}",
+    "season_Yy": f"{NOW.replace(NOW.year - 1):%Y}-{NOW:%y}" if NOW < datetime(NOW.year, 8, 1) else f"{NOW:%Y}-{NOW.replace(NOW.year + 1):%y}",
+    "season_YY": f"{NOW.replace(NOW.year - 1):%Y}-{NOW:%Y}" if NOW < datetime(NOW.year, 8, 1) else f"{NOW:%Y}-{NOW.replace(NOW.year + 1):%Y}",
 }
 NUMBER_PATTERN = re.compile(r"\d{1,2}")
 URL_PATTERN = re.compile(r"https?://\S+\b")
 TOP_OFFSET = 0.7
 BOTTOM_OFFSET = 0.2
 
-type PageOrLocatorToLocator = Callable[[Page | Locator], Locator]
+type PageOrLocator = Page | Locator
+type PageOrLocatorToLocator = Callable[[PageOrLocator], Locator]
 
-# fmt: off
-VIEW_LOCATOR: PageOrLocatorToLocator = lambda locator: (
-    locator.locator("select#sidearm-roster-select-template-dropdown")
-    .or_(locator.locator("select#sidearm-roster-select-template"))
-    .or_(locator.locator("section.roster__filters select#view"))
-    .or_(locator.locator(".roster-filters__view select#view"))
-    .or_(locator.locator("button#_viewType_card"))
-    .or_(locator.locator("button.view__card-button"))
-    .or_(locator.locator("a.photo-view"))
-    .or_(locator.locator("a.grid-view"))
-    .or_(locator.locator("a.section-title_togglers_grid"))
-    .or_(locator.locator("a[data-view='card']"))
-    .or_(locator.locator(".hero__view a:has-text('Cards')"))
+VIEW_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator(
+    ", ".join(
+        [
+            "select#sidearm-roster-select-template-dropdown",
+            "select#sidearm-roster-select-template",
+            "section.roster__filters select#view",
+            ".roster-filters__view select#view",
+            "button#_viewType_card",
+            "button.view__card-button",
+            "a.photo-view",
+            "a.grid-view",
+            "a.section-title_togglers_grid",
+            "a[data-view='card']",
+            ".hero__view a:has-text('Cards')",
+        ]
+    )
 )
-POPUP_LOCATOR: PageOrLocatorToLocator = lambda locator: (
-    locator.locator("#iubenda-cs-banner")
-    .or_(locator.locator("#gdpr-compliance"))
-    .or_(locator.locator("#polite-pop-up"))
-    .or_(locator.locator(".c-polite-pop-up"))
-    .or_(locator.locator(".s-popup"))
-    .or_(locator.locator(".sticky-popup"))
-    .or_(locator.locator("#onetrust-banner-sdk"))
-    .or_(locator.locator("#CybotCookiebotDialog"))
-    .or_(locator.locator("#didomi-popup"))
+POPUP_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator(
+    ", ".join(
+        [
+            "#iubenda-cs-banner",
+            "#gdpr-compliance",
+            "#polite-pop-up",
+            ".c-polite-pop-up",
+            ".s-popup",
+            ".sticky-popup",
+            "#onetrust-banner-sdk",
+            "#CybotCookiebotDialog",
+            "#didomi-popup",
+        ]
+    )
 )
-PLAYERS_LOCATOR: PageOrLocatorToLocator = lambda locator: (
-    locator.locator("li.sidearm-list-card-item[data-player-id]")
-    .or_(locator.locator("li.sidearm-roster-list-item"))
-    .or_(locator.locator("section.roster__list:nth-of-type(2) .roster__list_item"))
-    .or_(locator.locator(".roster-players-cards .roster-card"))
-    .or_(locator.locator(".roster-players-cards .roster-card-item"))
-    .or_(locator.locator(".player-card-wrapper"))
-    .or_(locator.locator(".featured__list:not(.staff) .player"))
-    .or_(locator.locator("#cardPanel > * > .s-person-card"))
-    .or_(locator.locator("#players .grid_view .player"))
-    .or_(locator.locator("[itemprop='athlete']"))
-    .or_(locator.locator("table#DataTables_Table_2 tbody tr td[data-order] a"))
-    .or_(locator.locator(".roster table tbody tr th.name > a"))
-    .or_(locator.locator(".roster-data table tbody tr th > a"))
-    .or_(locator.locator(".roster-data table tbody tr th[data-label*='Name'] .player-name-social-row a:nth-of-type(1)"))
-    .or_(locator.locator(".bottom-team:has-text('L’EQUIPE') + .managment-bottom > a"))
-    .or_(locator.locator("[class$='Wrapper'] > * > a[class^='LinkButton-module_button__']"))
-    .or_(locator.locator("canales-digitales-baskonia-alaves-member-card"))
-    .or_(locator.locator(".players h4:not(:has-text('Cuerpo técnico')) + app-swipe-carousel app-player-profile-card"))
-    .or_(locator.locator(".plantilla .items-row > *"))
-    .or_(locator.locator(".view-plantilla h3:not(:has-text('Cuerpo Técnico')) + * > * > *"))
-    .or_(locator.locator("#roster .listado-personas > *"))
-    .or_(locator.locator("h2:not(:has-text('Coaches')) + * > a[class*='__playerCard']"))
-    .or_(locator.locator(":not([aria-label='Coaching Staff']) + ul li.team-list__person-container"))
-    .or_(locator.locator("section.uk-section li"))
-    .or_(locator.locator(".team-grid [data-position]"))
-    .or_(locator.locator("dl.gallery-item"))
+PLAYERS_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator(
+    ", ".join(
+        [
+            "li.sidearm-list-card-item[data-player-id]",
+            "li.sidearm-roster-list-item",
+            "section.roster__list:nth-of-type(2) .roster__list_item",
+            ".roster-players-cards .roster-card",
+            ".roster-players-cards .roster-card-item",
+            ".player-card-wrapper",
+            ".featured__list:not(.staff) .player",
+            "#cardPanel > * > .s-person-card",
+            "#players .grid_view .player",
+            "[itemprop='athlete']",
+            "table#DataTables_Table_2 tbody tr td[data-order] a",
+            ".roster table tbody tr th.name > a",
+            ".roster-data table tbody tr th > a",
+            ".roster-data table tbody tr th[data-label*='Name'] .player-name-social-row a:nth-of-type(1)",
+            ".bottom-team:has-text('L’EQUIPE') + .managment-bottom > a",
+            "[class$='Wrapper'] > * > a[class^='LinkButton-module_button__']",
+            "canales-digitales-baskonia-alaves-member-card",
+            ".players h4:not(:has-text('Cuerpo técnico')) + app-swipe-carousel app-player-profile-card",
+            ".plantilla .items-row > *",
+            ".view-plantilla h3:not(:has-text('Cuerpo Técnico')) + * > * > *",
+            "#roster .listado-personas > *",
+            "h2:not(:has-text('Coaches')) + * > a[class*='__playerCard']",
+            ":not([aria-label='Coaching Staff']) + ul li.team-list__person-container",
+            "section.uk-section li",
+            ".team-grid [data-position]",
+            "dl.gallery-item",
+        ]
+    )
 )
-PLAYERS_JERSEY_LOCATOR: PageOrLocatorToLocator = lambda locator: (
-    locator.locator(".sidearm-roster-player-image .sidearm-roster-player-jersey")
-    .or_(locator.locator(".sidearm-roster-list-item-number"))
-    .or_(locator.locator(".roster-card__jersey-number"))
-    .or_(locator.locator(".roster-card-item__number"))
-    .or_(locator.locator(".roster-card-item__jersey-number"))
-    .or_(locator.locator(".roster-list_item_number"))
-    .or_(locator.locator(".roster-item__number"))
-    .or_(locator.locator(".player-card-footer .number"))
-    .or_(locator.locator(".player-heading .number"))
-    .or_(locator.locator(".player-headshot .number"))
-    .or_(locator.locator(".player__thumb .number"))
-    .or_(locator.locator(".player__photo .number"))
-    .or_(locator.locator(".card-front .number"))
-    .or_(locator.locator(".bio-title .number"))
-    .or_(locator.locator(".s-stamp__text"))
-    .or_(locator.locator(".thumb .icon"))
-    .or_(locator.locator(".thumb:has(.image) span"))
-    .or_(locator.locator(".bordeaux_bio__title h1"))
-    .or_(locator.locator("[itemprop='image'] ~ * .number"))
-    .or_(locator.locator(".les-topsh1"))
-    .or_(locator.locator(".player-content .dorsal"))
-    .or_(locator.locator("[class^='Column-module_column__'] > *:has(+ h1[id]):last-of-type"))
-    .or_(locator.locator(".profile-card__number"))
-    .or_(locator.locator(".img-dorsal"))
-    .or_(locator.locator(".card-deportista__info__dorsal"))
-    .or_(locator.locator(".contenido .dorsal"))
-    .or_(locator.locator(".bg-player-background h2 + * > p:first-child"))
-    .or_(locator.locator(".team-person__number"))
-    .or_(locator.locator(".uk-description-list dt:has-text('Number') + dd"))
-    .or_(locator.locator(".player-number"))
-    .or_(locator.locator(".gallery-caption .number"))
-    .filter(has_text=NUMBER_PATTERN)
+PLAYERS_JERSEY_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator(
+    ", ".join(
+        [
+            ".sidearm-roster-player-image .sidearm-roster-player-jersey",
+            ".sidearm-roster-list-item-number",
+            ".roster-card__jersey-number",
+            ".roster-card-item__number",
+            ".roster-card-item__jersey-number",
+            ".roster-list_item_number",
+            ".roster-item__number",
+            ".player-card-footer .number",
+            ".player-heading .number",
+            ".player-headshot .number",
+            ".player__thumb .number",
+            ".player__photo .number",
+            ".card-front .number",
+            ".bio-title .number",
+            ".s-stamp__text",
+            ".thumb .icon",
+            ".thumb:has(.image) span",
+            ".bordeaux_bio__title h1",
+            "[itemprop='image'] ~ * .number",
+            ".les-topsh1",
+            ".player-content .dorsal",
+            "[class^='Column-module_column__'] > *:has(+ h1[id]):last-of-type",
+            ".profile-card__number",
+            ".img-dorsal",
+            ".card-deportista__info__dorsal",
+            ".contenido .dorsal",
+            ".bg-player-background h2 + * > p:first-child",
+            ".team-person__number",
+            ".uk-description-list dt:has-text('Number') + dd",
+            ".player-number",
+            ".gallery-caption .number",
+        ]
+    )
 )
-PLAYERS_HEADSHOT_LOCATOR: PageOrLocatorToLocator = lambda locator: (
-    locator.locator(".sidearm-roster-player-image")
-    .or_(locator.locator("img.sidearm-roster-list-item-photo-img"))
-    .or_(locator.locator(".roster-card-item__thumb img"))
-    .or_(locator.locator("a.roster-card__image-wrapper img"))
-    .or_(locator.locator("img.roster-card__image"))
-    .or_(locator.locator("img.roster-card-item__image"))
-    .or_(locator.locator(".player-headshot img"))
-    .or_(locator.locator(".player__thumb .image"))
-    .or_(locator.locator(".player-image [style]"))
-    .or_(locator.locator(".player__photo [role='img']"))
-    .or_(locator.locator("img.s-person-card__header__image"))
-    .or_(locator.locator("img.img-thumbnail"))
-    .or_(locator.locator("img.bio-headshot"))
-    .or_(locator.locator(".thumb .image"))
-    .or_(locator.locator(".thumb-image"))
-    .or_(locator.locator(".thumb:has(.icon)"))
-    .or_(locator.locator(".card-front img.headshot"))
-    .or_(locator.locator(".bordeaux_bio__profile_picture img"))
-    .or_(locator.locator("[itemprop='image'] ~ a.image img"))
-    .or_(locator.locator("[itemprop='image'] ~ a[style]"))
-    .or_(locator.locator("img[data-test-id='s-image-resized__img']"))
-    .or_(locator.locator(".player-box img"))
-    .or_(locator.locator("canales-digitales-baskonia-alaves-strapi-image img"))
-    .or_(locator.locator("[class^='Image-module_imageFill'] img"))
-    .or_(locator.locator("img.profile-card__img"))
-    .or_(locator.locator("img[itemprop='thumbnailUrl']"))
-    .or_(locator.locator("img.image-style-foto-deportista"))
-    .or_(locator.locator(".contenido a img"))
-    .or_(locator.locator(".bg-player-background > * > * > img"))
-    .or_(locator.locator("picture.team-person__picture img"))
-    .or_(locator.locator(".uk-card-media-top img"))
-    .or_(locator.locator(".wrapper-img img:first-child"))
-    .or_(locator.locator(".gallery-icon img"))
+PLAYERS_HEADSHOT_LOCATOR: PageOrLocatorToLocator = lambda locator: locator.locator(
+    ", ".join(
+        [
+            ".sidearm-roster-player-image",
+            "img.sidearm-roster-list-item-photo-img",
+            ".roster-card-item__thumb img",
+            "a.roster-card__image-wrapper img",
+            "img.roster-card__image",
+            "img.roster-card-item__image",
+            ".player-headshot img",
+            ".player__thumb .image",
+            ".player-image [style]",
+            ".player__photo [role='img']",
+            "img.s-person-card__header__image",
+            "img.img-thumbnail",
+            "img.bio-headshot",
+            ".thumb .image",
+            ".thumb-image",
+            ".thumb:has(.icon)",
+            ".card-front img.headshot",
+            ".bordeaux_bio__profile_picture img",
+            "[itemprop='image'] ~ a.image img",
+            "[itemprop='image'] ~ a[style]",
+            "img[data-test-id='s-image-resized__img']",
+            ".player-box img",
+            "canales-digitales-baskonia-alaves-strapi-image img",
+            "[class^='Image-module_imageFill'] img",
+            "img.profile-card__img",
+            "img[itemprop='thumbnailUrl']",
+            "img.image-style-foto-deportista",
+            ".contenido a img",
+            ".bg-player-background > * > * > img",
+            "picture.team-person__picture img",
+            ".uk-card-media-top img",
+            ".wrapper-img img:first-child",
+            ".gallery-icon img",
+        ]
+    )
 )
-# fmt: on
 
 
 def get_number(locator: Locator) -> str | None:
     if locator.count() == 0:
         return None
 
-    return NUMBER_PATTERN.search(locator.inner_text()).group().zfill(2)
+    return match.group().zfill(2) if (match := NUMBER_PATTERN.search(locator.text_content() or "")) else None
 
 
 def get_img_url(locator: Locator) -> str | None:
@@ -191,15 +207,17 @@ def get_img_url(locator: Locator) -> str | None:
     return urlunparse(parsed._replace(query=new_query))
 
 
-# TODO: optimize
 def get_headshots(context: BrowserContext, url: str) -> Generator[dict[str, str | None], None, None]:
+    # TODO: needed?
     def _goto(page: Page, url: str) -> None:
-        try:
-            page.goto(url, wait_until="networkidle", timeout=5_000)
-        except TimeoutError:
-            page.wait_for_load_state("load", timeout=55_000)
+        # try:
+        #     page.goto(url, wait_until="networkidle", timeout=5_000)
+        # except TimeoutError:
+        #     page.wait_for_load_state("load", timeout=55_000)
+        LOGGER.info("%s Goto", url)
+        page.goto(url, timeout=60_000)
 
-    def _get_headshot(locator: Page | Locator) -> dict[str, str | None]:
+    def _get_headshot(locator: PageOrLocator) -> dict[str, str | None]:
         return {
             "jersey": get_number(PLAYERS_JERSEY_LOCATOR(locator)),
             "headshot": get_img_url(PLAYERS_HEADSHOT_LOCATOR(locator)),
@@ -230,12 +248,7 @@ def get_headshots(context: BrowserContext, url: str) -> Generator[dict[str, str 
 
 
 def circular_crop_faces(
-    detector: vision.FaceDetector,
-    img: cv2.typing.MatLike,
-    *,
-    top_offset: float = TOP_OFFSET,
-    bottom_offset: float = BOTTOM_OFFSET,
-    no_clip_bounds: bool = False,
+    detector: vision.FaceDetector, img: cv2.typing.MatLike, *, top_offset: float = TOP_OFFSET, bottom_offset: float = BOTTOM_OFFSET
 ) -> Generator[cv2.typing.MatLike, None, None]:
     img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
     mp_img = mp.Image(mp.ImageFormat.SRGB, cv2.cvtColor(img, cv2.COLOR_BGRA2RGB))
@@ -247,19 +260,11 @@ def circular_crop_faces(
 
         cx, cy = x + w // 2, y + h // 2
         ih, iw = img.shape[:2]
+        side = min(max(w, h), iw, ih)
 
-        if no_clip_bounds:
-            side = max(w, h)
-            cx_padded, cy_padded = cx + side, cy + side
-            img_padded = cv2.copyMakeBorder(img, side, side, side, side, borderType=cv2.BORDER_CONSTANT, value=0)
-            x1, y1 = cx_padded - side // 2, cy_padded - side // 2
-            x2, y2 = x1 + side, y1 + side
-            crop = img_padded[y1:y2, x1:x2].copy()
-        else:
-            side = min(max(w, h), iw, ih)
-            x1, y1 = np.clip(cx - side // 2, 0, iw - side), np.clip(cy - side // 2, 0, ih - side)
-            x2, y2 = x1 + side, y1 + side
-            crop = img[y1:y2, x1:x2].copy()
+        x1, y1 = np.clip(cx - side // 2, 0, iw - side), np.clip(cy - side // 2, 0, ih - side)
+        x2, y2 = x1 + side, y1 + side
+        crop = img[y1:y2, x1:x2].copy()
 
         mask = np.zeros((side, side), np.uint8)
         cv2.circle(mask, (side // 2, side // 2), side // 2, 255, -1)
@@ -269,15 +274,15 @@ def circular_crop_faces(
 def main() -> None:
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     # fmt: off
+    # TODO: help messages
     parser.add_argument("genius", help="genius of college basketball team to scrape headshots from and crop")
-    parser.add_argument("-i", "--id", default=env.str("GOOGLE_DRIVE_ID", default=None), help="id of google drive; required if GOOGLE_DRIVE_ID environment variable is not specified")
+    parser.add_argument("-i", "--id", default=os.getenv("GOOGLE_DRIVE_ID"), help="id of google drive; required if GOOGLE_DRIVE_ID environment variable is not specified")
     parser.add_argument("-c", "--credentials", default="service_account.json", metavar="PATH", help="path of google service account json file")
     parser.add_argument("-m", "--model", default="models/blaze_face_short_range.tflite", metavar="PATH", help="path of face detection model")
     parser.add_argument("--wbb", action="store_true", help="whether women's college basketball should be scraped from instead; euroleague and spanish league have no women teams")
-    # parser.add_argument("--clear", action="store_true", help="")
-    parser.add_argument("--top-offset", default=env.float("HDI_TOP_OFFSET", default=TOP_OFFSET), metavar="OFFSET", help="top offset to crop headshot")
-    parser.add_argument("--bottom-offset", default=env.float("HDI_BOTTOM_OFFSET", default=BOTTOM_OFFSET), metavar="OFFSET", help="bottom offset to crop headshot")
-    parser.add_argument("--no-clip-bounds", action="store_true", default=env.bool("HDI_NO_CLIP_BOUNDS", default=False), help="whether to not clip image bounds when cropping headshot; useful for small images")
+    parser.add_argument("--trash", action="store_true", help="trashes google drive folder before writing new data")
+    parser.add_argument("--top-offset", default=TOP_OFFSET, metavar="OFFSET", help="top offset to crop headshot")
+    parser.add_argument("--bottom-offset", default=BOTTOM_OFFSET, metavar="OFFSET", help="bottom offset to crop headshot")
     # fmt: on
     args = parser.parse_args([a for a in sys.argv[1:] if a.strip()])
 
@@ -286,29 +291,27 @@ def main() -> None:
 
     with open("genius.csv") as f:
         genius = {row["Genius"]: row for row in csv.DictReader(f)}
-        assert args.genius in genius
+
+    if args.genius not in genius:
+        LOGGER.critical("%s not found in genius.csv", args.genius)
+        return
 
     url = genius[args.genius]["URL" if not args.wbb else "URLW"].format(**SEASON)
-    assert url
+    if not url:
+        LOGGER.critical("%s URL not found", args.genius)
+        return
 
-    list_ = drive.files().list(
-        supportsAllDrives=True,
-        includeItemsFromAllDrives=True,
-        q=f"'{args.id}' in parents and name='{args.genius}' and trashed=false",
-    )
-    id = list_.execute()["files"][0]["id"]
-    assert id
+    list = drive.files().list(q=f"'{args.id}' in parents and name='{args.genius}' and trashed=false", includeItemsFromAllDrives=True, supportsAllDrives=True).execute()
+    id = list["files"][0]["id"] if list["files"] else None
+    if id and args.trash:
+        update = drive.files().update(fileId=id, body={"trashed": True}, supportsAllDrives=True).execute()
+        LOGGER.info("%s Trashed", update["name"])
+        id = None
 
-    # TODO: create folder if one doesn't exist
-    # files = drive.files().list(
-    #     supportsAllDrives=True,
-    #     includeItemsFromAllDrives=True,
-    #     q=f"'{id}' in parents and trashed=false"
-    # ).execute()["files"]
-
-    # for file in files:
-    #     drive.files().delete(fileId=file["id"], supportsAllDrives=True).execute()
-    #     LOGGER.info("deleted %s", file["name"])
+    if not id:
+        create = drive.files().create(body={"name": args.genius, "mimeType": "application/vnd.google-apps.folder", "parents": [args.id]}, supportsAllDrives=True).execute()
+        LOGGER.info("%s Created", create["name"])
+        id = create["id"]
 
     # TODO: first None or "0"
     with (
@@ -320,7 +323,7 @@ def main() -> None:
         for headshot in get_headshots(context, url):
             filename = f"{genius[args.genius]['HDI' if not args.wbb else 'HDIW']}{headshot['jersey']}pic.png"
             if not headshot["headshot"] or not headshot["jersey"]:
-                LOGGER.warning("no headshot or jersey found for %s at %s", filename, url)
+                LOGGER.error("%s No headshot or jersey found", filename)
                 continue
 
             buffer = requests.get(
@@ -328,32 +331,24 @@ def main() -> None:
                 headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 OPR/131.0.0.0"},
             ).content
             decoded = cv2.imdecode(np.frombuffer(buffer, np.uint8), cv2.IMREAD_UNCHANGED)
-            crops = [
-                *circular_crop_faces(
-                    detector,
-                    decoded,
-                    top_offset=args.top_offset,
-                    bottom_offset=args.bottom_offset,
-                    no_clip_bounds=args.no_clip_bounds,
-                )
-            ]
-            # TODO: for loop
+            crops = [*circular_crop_faces(detector, decoded, top_offset=args.top_offset, bottom_offset=args.bottom_offset)]
             if len(crops) == 0:
-                LOGGER.warning("no faces detected for %s at %s", filename, url)
+                LOGGER.error("%s No faces detected", filename)
                 continue
             elif len(crops) > 1:
-                LOGGER.warning("multiple faces detected for %s at %s", filename, url)
+                LOGGER.warning("%s Multiple faces detected", filename)
 
             success, encoded = cv2.imencode(".png", crops[0])
             if not success:
+                LOGGER.error("%s Failed to encode image")
                 continue
 
             drive.files().create(
-                supportsAllDrives=True,
                 media_body=MediaIoBaseUpload(io.BytesIO(encoded), "image/png", resumable=True),
                 body={"name": filename, "parents": [id]},
+                supportsAllDrives=True,
             ).execute()
-            LOGGER.info("created %s", filename)
+            LOGGER.info("%s Created", filename)
 
 
 if __name__ == "__main__":

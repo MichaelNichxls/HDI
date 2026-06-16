@@ -10,7 +10,7 @@
             "args": [
                 "${input:genius}",
                 "${input:wbb}",
-                "--trash"
+                "--recreate"
             ],
             "envFile": "${workspaceFolder}/${input:env}"
         },

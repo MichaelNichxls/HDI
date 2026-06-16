@@ -17,7 +17,7 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseUpload
 from mediapipe.tasks.python import vision
-from playwright.sync_api import BrowserContext, Locator, Page, sync_playwright
+from playwright.sync_api import BrowserContext, Locator, Page, TimeoutError, sync_playwright
 
 LOGGER = logging.getLogger(__name__)
 NOW = datetime.now()
@@ -208,20 +208,14 @@ def get_img_url(locator: Locator) -> str | None:
 
 
 def get_headshots(context: BrowserContext, url: str) -> Generator[dict[str, str | None], None, None]:
-    # TODO: needed?
     def _goto(page: Page, url: str) -> None:
-        # try:
-        #     page.goto(url, wait_until="networkidle", timeout=5_000)
-        # except TimeoutError:
-        #     page.wait_for_load_state("load", timeout=55_000)
-        LOGGER.info("%s Goto", url)
-        page.goto(url, timeout=60_000)
+        try:
+            page.goto(url, wait_until="networkidle", timeout=5_000)
+        except TimeoutError:
+            page.wait_for_load_state("load", timeout=55_000)
 
     def _get_headshot(locator: PageOrLocator) -> dict[str, str | None]:
-        return {
-            "jersey": get_number(PLAYERS_JERSEY_LOCATOR(locator)),
-            "headshot": get_img_url(PLAYERS_HEADSHOT_LOCATOR(locator)),
-        }
+        return {"jersey": get_number(PLAYERS_JERSEY_LOCATOR(locator)), "headshot": get_img_url(PLAYERS_HEADSHOT_LOCATOR(locator))}
 
     with context.new_page() as page:
         page.add_locator_handler(POPUP_LOCATOR(page).first, lambda locator: locator.evaluate("el => el.remove()"), no_wait_after=True)
@@ -274,15 +268,14 @@ def circular_crop_faces(
 def main() -> None:
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     # fmt: off
-    # TODO: help messages
-    parser.add_argument("genius", help="genius of college basketball team to scrape headshots from and crop")
-    parser.add_argument("-i", "--id", default=os.getenv("GOOGLE_DRIVE_ID"), help="id of google drive; required if GOOGLE_DRIVE_ID environment variable is not specified")
-    parser.add_argument("-c", "--credentials", default="service_account.json", metavar="PATH", help="path of google service account json file")
-    parser.add_argument("-m", "--model", default="models/blaze_face_short_range.tflite", metavar="PATH", help="path of face detection model")
-    parser.add_argument("--wbb", action="store_true", help="whether women's college basketball should be scraped from instead; euroleague and spanish league have no women teams")
-    parser.add_argument("--trash", action="store_true", help="trashes google drive folder before writing new data")
-    parser.add_argument("--top-offset", default=TOP_OFFSET, metavar="OFFSET", help="top offset to crop headshot")
-    parser.add_argument("--bottom-offset", default=BOTTOM_OFFSET, metavar="OFFSET", help="bottom offset to crop headshot")
+    parser.add_argument("genius", help="Genius of college basketball team to scrape headshots from and crop")
+    parser.add_argument("-i", "--id", default=os.getenv("GOOGLE_DRIVE_ID"), help="ID of Google drive (Required if GOOGLE_DRIVE_ID environment variable is not set)")
+    parser.add_argument("-c", "--credentials", default="service_account.json", metavar="PATH", help="Path of Google service account JSON file")
+    parser.add_argument("-m", "--model", default="models/blaze_face_short_range.tflite", metavar="PATH", help="Path of face detection model")
+    parser.add_argument("--wbb", action="store_true", help="Whether women's college basketball should be scraped from instead (Euroleague and Spanish League have no women teams)")
+    parser.add_argument("--recreate", action="store_true", help="Recreate current genius folder in Google drive, if any, before writing data")
+    parser.add_argument("--top-offset", default=TOP_OFFSET, metavar="OFFSET", help="Top offset to crop headshot")
+    parser.add_argument("--bottom-offset", default=BOTTOM_OFFSET, metavar="OFFSET", help="Bottom offset to crop headshot")
     # fmt: on
     args = parser.parse_args([a for a in sys.argv[1:] if a.strip()])
 
@@ -328,7 +321,7 @@ def main() -> None:
 
             buffer = requests.get(
                 headshot["headshot"],
-                headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 OPR/131.0.0.0"},
+                headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"},
             ).content
             decoded = cv2.imdecode(np.frombuffer(buffer, np.uint8), cv2.IMREAD_UNCHANGED)
             crops = [*circular_crop_faces(detector, decoded, top_offset=args.top_offset, bottom_offset=args.bottom_offset)]
